@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Undangan Apung & Febby</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: #ffffff;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            height: 100vh;
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: none;
+            background-image: url('https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-BG.jpg');
+            background-size: cover;
+            background-position: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 100px;
+        }
+
+        .page.active {
+            display: flex;
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .page.animate__animated {
+            animation-duration: 0.8s;
+        }
+
+        .corner-image {
+            position: absolute;
+            width: 160px;
+            height: auto;
+            z-index: 9;
+            pointer-events: none;
+        }
+
+        .corner-top-left {
+            top: 0;
+            left: 0;
+            transform: rotate(90deg) translateY(-100%);
+            transform-origin: top left;
+        }
+
+        .corner-top-right {
+            top: 0;
+            right: 0;
+            transform: rotate(180deg) translate(100%, -100%);
+            transform-origin: top right;
+        }
+
+        .corner-bottom-left {
+            bottom: 0;
+            left: 0;
+            transform: rotate(0deg);
+            transform-origin: bottom left;
+        }
+
+        .corner-bottom-right {
+            bottom: 0;
+            right: 0;
+            transform: rotate(270deg) translate(100%, 0%);
+            transform-origin: bottom right;
+        }
+
+        .wrapper.opened .corner-bottom-left,
+        .wrapper.opened .corner-bottom-right {
+            bottom: 155px;
+        }
+
+        .btn-open {
+            background: #574D36;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.85;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .menu {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 480px;
+            background: #574D36;
+            color: white;
+            z-index: 10;
+            display: none;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu.visible {
+            display: block;
+        }
+
+        .menu-wrapper {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .menu-wrapper::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .menu-wrapper::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 2px;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-wrap: nowrap;
+            padding: 8px 10px;
+        }
+
+        .menu button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 70px;
+            flex: 0 0 auto;
+            padding: 6px;
+            margin: 0 4px;
+            cursor: pointer;
+        }
+
+        .menu button.active {
+            background: #C2A878;
+            color: #574D36;
+            border-radius: 10px;
+        }
+
+        .menu button img {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
+        }
+
+        #menuContainer i {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        #audioControl {
+            position: fixed;
+            bottom: 90px;
+            right: 16px;
+            background: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: none;
+            z-index: 15;
+        }
+
+        #audioControl img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* FONT */
+        h2 {
+            font-family: 'Great Vibes', cursive;
+        }
+
+
+        /* HOME PAGE */
+        .circle-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: -70px auto 0 auto;
+        }
+
+        .circle-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-inner img {
+            height: 80%;
+            width: auto;
+            object-fit: cover;
+        }
+
+        .circle-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            transform: translate(-50%, -50%);
+            object-fit: contain;
+            z-index: 2;
+        }
+
+        .names-container {
+            text-align: center;
+        }
+
+        .names-container h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 20px;
+            color: #4B1E12;
+            margin: 0;
+        }
+
+        .names-container .and-symbol {
+            font-size: 24px;
+            color: #4B1E12;
+        }
+
+        .names-container .date {
+            margin-top: 8px;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #4B1E12;
+        }
+
+        .invite-text {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .invite-text p {
+            margin: 4px 0;
+            font-size: 16px;
+        }
+
+        .invite-text .guest-name {
+            margin-top: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4B2A14;
+        }
+
+        .invite-text .warning-name {
+            margin-top: 4px;
+            font-size: 8px;
+            color: #4B2A14;
+        }
+
+        /* END HOME PAGE */
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-BKR.png"
+            class="corner-image corner-top-left" />
+        <img src="https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-BKR.png"
+            class="corner-image corner-top-right" />
+        <img src="https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-BKR.png"
+            class="corner-image corner-bottom-left" />
+        <img src="https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-BKR.png"
+            class="corner-image corner-bottom-right" />
+
+        <div id="home" class="page active">
+            <div class="circle-container">
+                <div class="circle-inner">
+                    <img src="https://sin1.contabostorage.com/2db3bf1e16cd47a08843bb881e39cce7:indoinvite-staging/indoinvite-staging/indoinvite-staging/nikah/theme/images/1663620650.png"
+                        alt="Isi Tengah" />
+                </div>
+                <img class="circle-frame" src="https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-Bor.png"
+                    alt="Bingkai" />
+            </div>
+
+
+            <!-- Nama dan tanggal -->
+            <div class="names-container">
+                <h1>ANA</h1>
+                <div class="and-symbol">&amp;</div>
+                <h1>Dita & Radea</h1>
+                <p class="date">27 . 08 . 2025</p>
+            </div>
+
+            <!-- Teks sambutan -->
+            <div class="invite-text">
+                <p>Kepada Yth;</p>
+                <p>Bapak/Ibu/Saudara/i</p>
+                <p class="guest-name">Yogi Prayoga</p>
+                <p class="warning-name">Mohon maaf atas kesalahan penyebutan nama ataupun gelar</p>
+            </div>
+
+            <button id="btnOpen" class="btn-open animate__animated animate__pulse" onclick="openInvitation()">Open
+                Invitation</button>
+        </div>
+        <div id="profile" class="page">
+            <h2>ANA & DITA & RADEA</h2>
+            <p>25 Maret 2024</p>
+        </div>
+        <div id="quotes" class="page">
+            <h2 class="animate__animated animate__fadeInDown">Quotes Cinta</h2>
+        </div>
+        <div id="salam" class="page">
+            <h2 class="animate__animated animate__fadeInDown">Ucapan dan Doa</h2>
+        </div>
+        <div id="acara" class="page">
+            <h2 class="animate__animated animate__fadeInDown">Profil Mempelai</h2>
+        </div>
+        <div id="maps" class="page">
+            <h2 class="animate__animated animate__fadeInDown">Google Maps</h2>
+            <p><a href="#">Lihat Lokasi</a></p>
+        </div>
+        <div id="rsvp" class="page">
+            <h2 class="animate__animated animate__fadeInDown">Konfirmasi Kehadiran</h2>
+        </div>
+        <div id="gifts" class="page">
+            <h2 class="animate__animated animate__fadeInDown">Kado & Hadiah</h2>
+            <p><a href="#">Kirim via WhatsApp</a></p>
+        </div>
+        <div id="thanks" class="page">
+            <h2 class="animate__animated animate__fadeInDown">Lokasi Acara</h2>
+            <p>Jl. Contoh Lokasi No. 123</p>
+        </div>
+
+        <div class="menu" id="menu">
+            <div class="menu-wrapper">
+                <div class="menu-container" id="menuContainer"></div>
+            </div>
+        </div>
+
+        <button id="audioControl" onclick="toggleAudio()">
+            <img id="audioIcon" src="https://cdn-icons-png.flaticon.com/512/727/727269.png" alt="Audio">
+        </button>
+        <audio id="bgAudio" loop>
+            <source src="https://acarakami.com/wp-content/uploads/2023/04/Gamelan-Gambelan-MEPANDES-POTONG.mp3"
+                type="audio/mp3">
+        </audio>
+    </div>
+
+    <script>
+        const pageOrder = ['home', 'profile', 'quotes', 'salam', 'acara', 'maps', 'rsvp', 'gifts', 'thanks'];
+        const menuIcons = {
+            home: 'ph-house-line',
+            profile: 'ph-user-circle',
+            quotes: 'ph-star-and-crescent',
+            salam: 'ph-file-text',
+            acara: 'ph-calendar',
+            maps: 'ph-map-pin-line',
+            rsvp: 'ph-chat-teardrop-dots',
+            gifts: 'ph-gift',
+            thanks: 'ph-hands-praying',
+        };
+
+        let currentPage = 'home';
+
+        function renderMenu() {
+            const container = document.getElementById('menuContainer');
+            container.innerHTML = '';
+            pageOrder.forEach(id => {
+                const btn = document.createElement('button');
+                btn.innerHTML = `<i class="icon ph-fill ${menuIcons[id]}" alt="${id}" /></i><span>${id.charAt(0).toUpperCase() + id.slice(1)}</span>`;
+                btn.onclick = () => showPage(id);
+                btn.dataset.pageId = id;
+                container.appendChild(btn);
+            });
+            highlightActiveMenu();
+        }
+
+        function highlightActiveMenu() {
+            document.querySelectorAll('.menu button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.pageId === currentPage);
+            });
+        }
+
+        /*function showPage(id) {
+            currentPage = id;
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById(id);
+            if (target) target.classList.add('active');
+            highlightActiveMenu();
+        }*/
+
+        /*function showPage(id) {
+            const previous = document.getElementById(currentPage);
+            const next = document.getElementById(id);
+
+            if (previous && previous !== next) {
+                previous.classList.remove('active', 'animate__animated', 'animate__fadeIn');
+            }
+
+            if (next) {
+                next.classList.add('active', 'animate__animated', 'animate__fadeIn');
+            }
+
+            currentPage = id;
+            highlightActiveMenu();
+        }*/
+
+        function showPage(id) {
+            if (id === currentPage) return;
+
+            const previous = document.getElementById(currentPage);
+            const next = document.getElementById(id);
+
+            // Tambahkan animasi fadeOut ke halaman sebelumnya
+            if (previous) {
+                previous.classList.remove('animate__fadeIn');
+                previous.classList.add('animate__animated', 'animate__fadeOut');
+
+                // Setelah delay animasi (misalnya 500ms), tampilkan halaman berikutnya
+                setTimeout(() => {
+                    previous.classList.remove('active', 'animate__animated', 'animate__fadeOut');
+
+                    // Tampilkan halaman baru dengan fadeIn
+                    if (next) {
+                        next.classList.add('active', 'animate__animated', 'animate__fadeIn');
+                        currentPage = id;
+                        highlightActiveMenu();
+                    }
+                }, 500); // Delay 500ms sesuai durasi fadeOut
+            } else {
+                // Jika tidak ada halaman sebelumnya
+                if (next) {
+                    next.classList.add('active', 'animate__animated', 'animate__fadeIn');
+                    currentPage = id;
+                    highlightActiveMenu();
+                }
+            }
+        }
+
+
+
+        function openInvitation() {
+            const btn = document.getElementById('btnOpen');
+            btn.classList.remove('animate__pulse');
+            btn.classList.add('animate__animated', 'animate__fadeOut');
+
+            setTimeout(() => {
+                btn.style.display = 'none';
+                showPage('profile');
+                renderMenu();
+                document.getElementById('menu').classList.add('visible');
+                document.getElementById('audioControl').style.display = 'block';
+                document.getElementById('bgAudio').play().catch(() => { });
+                document.querySelector('.wrapper').classList.add('opened');
+            }, 600); // durasi delay sesuai fadeOut (0.6s)
+        }
+
+
+        function toggleAudio() {
+            const audio = document.getElementById('bgAudio');
+            const icon = document.getElementById('audioIcon');
+            if (audio.paused) {
+                audio.play();
+                icon.src = 'https://cdn-icons-png.flaticon.com/512/727/727269.png';
+            } else {
+                audio.pause();
+                icon.src = 'https://cdn-icons-png.flaticon.com/512/727/727240.png';
+            }
+        }
+    </script>
+</body>
+
+</html>
