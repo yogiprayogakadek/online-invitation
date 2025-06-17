@@ -548,8 +548,8 @@
 
         /* END SALAM */
 
-        /* START ACARA */
-        #acara {
+        /* START RESEPSI */
+        #resepsi {
             text-align: center;
             color: #4B1E12;
             background-color: #FFA726;
@@ -558,23 +558,23 @@
         }
 
         /* Hari besar di atas */
-        #acara .hari {
+        #resepsi .hari {
             font-family: 'Great Vibes', cursive;
             font-size: 36px;
             margin: -10px 0px 10px 0px;
             color: #4B1E12;
         }
 
-        /* Blok acara */
-        .acara-detail {
+        /* Blok resepsi */
+        .resepsi-detail {
             background: rgba(255, 255, 255, 0.1);
             /* transparan ringan jika perlu */
             padding: 20px 10px;
             border-radius: 12px;
         }
 
-        /* Judul utama (Acara Mapandes) */
-        .acara-detail .judul-acara {
+        /* Judul utama (resepsi Mapandes) */
+        .resepsi-detail .judul-resepsi {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 6px;
@@ -582,21 +582,21 @@
         }
 
         /* Waktu dan Tanggal */
-        .acara-detail .waktu,
-        .acara-detail .tanggal {
+        .resepsi-detail .waktu,
+        .resepsi-detail .tanggal {
             font-size: 24px;
             font-family: "Lora", serif;
             margin: 6px 0;
         }
 
         /* Lokasi */
-        .acara-detail .lokasi {
+        .resepsi-detail .lokasi {
             font-size: 14px;
             margin-top: 8px;
         }
 
         /* Icon praying tangan */
-        .acara-detail .icon {
+        .resepsi-detail .icon {
             margin: 0 6px;
             color: #4B1E12;
         }
@@ -623,7 +623,7 @@
         }
 
         /* Garis pemisah bawah */
-        .acara-divider {
+        .resepsi-divider {
             margin-top: 20px;
             border: none;
             border-top: 1px dashed #4B1E12;
@@ -633,7 +633,98 @@
             opacity: 0.6;
         }
 
-        #acara .circle-container {
+        #resepsi .circle-container {
+            margin: -60px auto 0 auto;
+        }
+
+        /* END RESEPSI */
+
+        /* START MESANGIH */
+        #mesangih {
+            text-align: center;
+            color: #4B1E12;
+            background-color: #FFA726;
+            /* or sesuai latar belakang oranye */
+            font-family: 'Georgia', serif;
+        }
+
+        /* Hari besar di atas */
+        #mesangih .hari {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            margin: -10px 0px 10px 0px;
+            color: #4B1E12;
+        }
+
+        /* Blok mesangih */
+        .mesangih-detail {
+            background: rgba(255, 255, 255, 0.1);
+            /* transparan ringan jika perlu */
+            padding: 20px 10px;
+            border-radius: 12px;
+        }
+
+        /* Judul utama (mesangih Mapandes) */
+        .mesangih-detail .judul-mesangih {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-family: "Dancing Script", cursive;
+        }
+
+        /* Waktu dan Tanggal */
+        .mesangih-detail .waktu,
+        .mesangih-detail .tanggal {
+            font-size: 24px;
+            font-family: "Lora", serif;
+            margin: 6px 0;
+        }
+
+        /* Lokasi */
+        .mesangih-detail .lokasi {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* Icon praying tangan */
+        .mesangih-detail .icon {
+            margin: 0 6px;
+            color: #4B1E12;
+        }
+
+        /* Ornamen garis dan bunga */
+        .line-decor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .line-decor .line {
+            height: 1px;
+            width: 50px;
+            background-color: #4B1E12;
+            margin: 0 10px;
+            opacity: 0.4;
+        }
+
+        .line-decor .bunga-icon {
+            font-size: 18px;
+            color: #4B1E12;
+        }
+
+        /* Garis pemisah bawah */
+        .mesangih-divider {
+            margin-top: 20px;
+            border: none;
+            border-top: 1px dashed #4B1E12;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.6;
+        }
+
+        #mesangih .circle-container {
             margin: -60px auto 0 auto;
         }
 
@@ -692,6 +783,66 @@
         }
 
         /* END MAPS */
+
+        /* START RSVP */
+        #rsvp {
+            text-align: center;
+            padding: 2rem;
+            color: #574D36;
+            margin-top: -120px;
+        }
+
+        #rsvp .judul-section {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2em;
+            margin-bottom: 1rem;
+            color: #574D36;
+        }
+
+        #rsvp .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        #rsvp .countdown .box {
+            background-color: #574D36;
+            color: white;
+            border-radius: 8px;
+            padding: 10px 12px;
+            width: 60px;
+        }
+
+        #rsvp .countdown .angka {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        #rsvp .countdown .label {
+            font-size: 0.9em;
+            margin-top: 2px;
+        }
+
+        #rsvp .deskripsi {
+            font-size: 1em;
+            color: #574D36;
+            margin-bottom: 1.5rem;
+        }
+
+        #rsvp .btn-konfirmasi {
+            background-color: #574D36;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1em;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+
+
+        /* END RSVP */
 
         /* START GIFTS */
         #gifts {
@@ -834,8 +985,6 @@
             margin-top: -2px;
         }
 
-
-
         /* END THANKS */
     </style>
 </head>
@@ -851,6 +1000,7 @@
         <img src="https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-BKR.png"
             class="corner-image corner-bottom-right" />
 
+        <!-- HOME -->
         <div id="home" class="page active">
             <div class="circle-container">
                 <div class="circle-inner">
@@ -908,6 +1058,7 @@
             </div>
         </div>
 
+        <!-- QUOTES -->
         <div id="quotes" class="page">
             <h2 class="animate__animated animate__fadeInDown">Rg Veda X.191.2</h2>
             <p>"Satsyameva jayate nānṛtam"</p>
@@ -930,7 +1081,50 @@
                 menyelenggarakan Upacara Mepandes putra/putri kami.
             </p>
         </div>
-        <div id="acara" class="page">
+
+        <!-- RESEPSI -->
+        <div id="resepsi" class="page">
+            <div class="circle-container">
+                <div class="circle-inner">
+                    <img src="https://sin1.contabostorage.com/2db3bf1e16cd47a08843bb881e39cce7:indoinvite-staging/indoinvite-staging/indoinvite-staging/nikah/theme/images/1663620650.png"
+                        alt="Isi Tengah" />
+                </div>
+                <img class="circle-frame" src="https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-Bor.png"
+                    alt="Bingkai" />
+            </div>
+            <h2 class="hari animate__animated animate__fadeInDown">SELASA</h2>
+
+            <div class="resepsi-detail">
+                <!-- Ornamen dekoratif -->
+                <div class="line-decor">
+                    <span class="line"></span>
+                    <span class="bunga-icon">✿</span>
+                    <span class="line"></span>
+                </div>
+
+                <p class="judul-resepsi">
+                    <i class="icon ph-fill ph-hands-praying"></i>
+                    Ngekeb & Resepsi
+                    <i class="icon ph-fill ph-hands-praying"></i>
+                </p>
+
+                <p class="waktu">Pukul 09.00 - Selesai</p>
+                <p class="tanggal">26 . 08 . 2025</p>
+                <p class="lokasi">Banjar Banyubiru, Jembrana</p>
+
+                <!-- Ornamen dekoratif -->
+                <div class="line-decor">
+                    <span class="line"></span>
+                    <span class="bunga-icon">✿</span>
+                    <span class="line"></span>
+                </div>
+                <!-- Garis tipis pemisah -->
+                <!-- <hr class="acara-divider" /> -->
+            </div>
+        </div>
+
+        <!-- MESANGIH -->
+        <div id="mesangih" class="page">
             <div class="circle-container">
                 <div class="circle-inner">
                     <img src="https://sin1.contabostorage.com/2db3bf1e16cd47a08843bb881e39cce7:indoinvite-staging/indoinvite-staging/indoinvite-staging/nikah/theme/images/1663620650.png"
@@ -941,7 +1135,7 @@
             </div>
             <h2 class="hari animate__animated animate__fadeInDown">RABU</h2>
 
-            <div class="acara-detail">
+            <div class="mesangih-detail">
                 <!-- Ornamen dekoratif -->
                 <div class="line-decor">
                     <span class="line"></span>
@@ -949,7 +1143,7 @@
                     <span class="line"></span>
                 </div>
 
-                <p class="judul-acara">
+                <p class="judul-mesangih">
                     <i class="icon ph-fill ph-hands-praying"></i>
                     Acara Mapandes
                     <i class="icon ph-fill ph-hands-praying"></i>
@@ -971,6 +1165,7 @@
         </div>
 
 
+        <!-- MAPS -->
         <div id="maps" class="page">
             <div class="maps-container animate__animated animate__fadeIn">
                 <div class="maps-frame">
@@ -990,9 +1185,39 @@
             </div>
         </div>
 
+        <!-- RSVP -->
+        <!-- RSVP -->
         <div id="rsvp" class="page">
-            <h2 class="animate__animated animate__fadeInDown">Konfirmasi Kehadiran</h2>
+            <h2 class="judul-section">Menghitung Hari</h2>
+
+            <div class="countdown">
+                <div class="box">
+                    <div class="angka" id="hari">00</div>
+                    <div class="label">Hari</div>
+                </div>
+                <div class="box">
+                    <div class="angka" id="jam">00</div>
+                    <div class="label">Jam</div>
+                </div>
+                <div class="box">
+                    <div class="angka" id="menit">00</div>
+                    <div class="label">Menit</div>
+                </div>
+                <div class="box">
+                    <div class="angka" id="detik">00</div>
+                    <div class="label">Detik</div>
+                </div>
+            </div>
+
+            <p class="deskripsi">
+                Tekan tombol dibawah ini untuk<br />mengirim ucapan dan konfirmasi<br />kehadiran
+            </p>
+
+            <button class="btn-konfirmasi">Konfirmasi & Kirim Ucapan</button>
         </div>
+
+
+        <!-- GIFTS -->
         <div id="gifts" class="page">
             <h2 class="title animate__animated animate__fadeInDown">Tanda Kasih</h2>
             <p>Terima kasih telah menambah semangat kegembiraan acara kami dengan kehadiran dan hadiah indah Anda.
@@ -1012,6 +1237,8 @@
             </div>
         </div>
 
+        <!-- THANKS -->
+
         <div id="thanks" class="page">
             <h2 class="title animate__animated animate__fadeInDown">Matur Sukma</h2>
             <p>Terima kasih buat kamu yang sudah meluangkan waktu dan menjadi bagian pada acara kami.</p>
@@ -1030,7 +1257,6 @@
         </div>
 
 
-
         <div class="menu" id="menu">
             <div class="menu-wrapper">
                 <div class="menu-container" id="menuContainer"></div>
@@ -1047,13 +1273,14 @@
     </div>
 
     <script>
-        const pageOrder = ['home', 'profile', 'quotes', 'salam', 'acara', 'maps', 'rsvp', 'gifts', 'thanks'];
+        const pageOrder = ['home', 'profile', 'quotes', 'salam', 'resepsi', 'mesangih', 'maps', 'rsvp', 'gifts', 'thanks'];
         const menuIcons = {
             home: 'ph-house-line',
             profile: 'ph-user-circle',
             quotes: 'ph-star-and-crescent',
             salam: 'ph-file-text',
-            acara: 'ph-calendar',
+            resepsi: 'ph-calendar',
+            mesangih: 'ph-calendar',
             maps: 'ph-map-pin-line',
             rsvp: 'ph-chat-teardrop-dots',
             gifts: 'ph-gift',
@@ -1264,6 +1491,37 @@
             setTimeout(() => btn.innerText = "Salin Rekening", 2000);
         }
         //END CASHLESS
+
+        // COUNTDOWN
+        // Ganti ke tanggal acara kamu
+        const targetDate = new Date("2025-08-26T09:00:00").getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("hari").textContent = "00";
+                document.getElementById("jam").textContent = "00";
+                document.getElementById("menit").textContent = "00";
+                document.getElementById("detik").textContent = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("hari").textContent = String(days).padStart(2, "0");
+            document.getElementById("jam").textContent = String(hours).padStart(2, "0");
+            document.getElementById("menit").textContent = String(minutes).padStart(2, "0");
+            document.getElementById("detik").textContent = String(seconds).padStart(2, "0");
+        };
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        // END COUNTDOWN
     </script>
 </body>
 
