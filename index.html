@@ -8,11 +8,16 @@
     <meta name="theme-color" content="#574D36">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://www.google.com;">
+
+    <link rel="apple-touch-icon" href="/assets/images/icons/icon.png">
+    <link rel="shortcut icon" href="/assets/images/icons/icon.png" type="image/x-icon">
     <title>Undangan Metatah</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
 
@@ -322,6 +327,516 @@
         }
 
         /* END HOME PAGE */
+
+        /* START PROFILE */
+        #profile {
+            text-align: center;
+            /*padding: 30px 10px;*/
+            background-color: #FAF8F5;
+            font-family: 'Georgia', serif;
+            color: #4B2A14;
+        }
+
+        #profile p {
+            margin: 6px 0;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        #profile .name {
+            margin: 20px 0;
+            padding: 15px 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            display: inline-block;
+            max-width: 500px;
+        }
+
+        #profile .name p:first-child {
+            font-size: 18px;
+            font-weight: bold;
+            color: #6A3F2B;
+            margin-bottom: 8px;
+        }
+
+        #profile .name p:last-child {
+            font-size: 10px;
+            font-weight: bold;
+            color: #6A3F2B;
+        }
+
+        #profile span {
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 0 5px 0;
+            font-weight: bold;
+            color: #D4AF37;
+        }
+
+        #profile .title {
+            margin-top: -60px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #D4AF37;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .carousel {
+            position: relative;
+        }
+
+        .carousel-item {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            color: #4B2A14;
+            display: none;
+            animation: fade 0.5s ease-in-out;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-item p:first-child {
+            font-size: 18px;
+            font-weight: bold;
+            color: #6A3F2B;
+            margin-bottom: 8px;
+        }
+
+        .carousel-item p:last-child {
+            font-size: 10px;
+            font-weight: bold;
+            color: #6A3F2B;
+        }
+
+        /* Tombol navigasi kiri-kanan */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .carousel-nav button {
+            width: 24px;
+            height: 24px;
+            background-color: #4B1E12;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+
+        .carousel-nav button::before {
+            content: '';
+            /* tidak menampilkan ikon apa pun */
+            display: block;
+        }
+
+        /* Hover effect opsional */
+        .carousel-nav button:hover {
+            background-color: #6e3a20;
+        }
+
+
+
+        /* Dot navigasi bawah (ubah dari bulat ke garis) */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+            gap: 6px;
+        }
+
+        .carousel-dots span {
+            width: 20px;
+            height: 6px;
+            background-color: #ddd;
+            border-radius: 3px;
+            /* ubah 50% → 3px biar tidak bulat */
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-dots .active {
+            background-color: #4B1E12;
+        }
+
+        /* END PROFILE */
+
+        /* START QUOTES */
+        /* Halaman Salam */
+        #quotes {
+            text-align: center;
+            background-color: #f9f5f0;
+            /* Warna lembut */
+            color: #4B1E12;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Judul utama */
+        #quotes h2 {
+            font-size: 32px;
+            font-weight: bold;
+            font-style: italic;
+            margin-bottom: 20px;
+            margin-top: -20px;
+            font-family: 'Great Vibes', cursive;
+            color: #4B1E12;
+        }
+
+        /* Paragraf */
+        #quotes p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        #quotes p:nth-of-type(2) {
+            font-size: 10px;
+        }
+
+        /* END QUOTES */
+
+
+        /* START SALAM */
+        #salam {
+            text-align: center;
+            background-color: #f9f5f0;
+            /* Warna lembut */
+            color: #4B1E12;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Judul utama */
+        #salam h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: -20px;
+            font-family: 'Great Vibes', cursive;
+            color: #4B1E12;
+        }
+
+        /* Paragraf */
+        #salam p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #salam .circle-container {
+            margin: -120px auto 0 auto;
+        }
+
+        /* END SALAM */
+
+        /* START ACARA */
+        #acara {
+            text-align: center;
+            color: #4B1E12;
+            background-color: #FFA726;
+            /* or sesuai latar belakang oranye */
+            font-family: 'Georgia', serif;
+        }
+
+        /* Hari besar di atas */
+        #acara .hari {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            margin: -10px 0px 10px 0px;
+            color: #4B1E12;
+        }
+
+        /* Blok acara */
+        .acara-detail {
+            background: rgba(255, 255, 255, 0.1);
+            /* transparan ringan jika perlu */
+            padding: 20px 10px;
+            border-radius: 12px;
+        }
+
+        /* Judul utama (Acara Mapandes) */
+        .acara-detail .judul-acara {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-family: "Dancing Script", cursive;
+        }
+
+        /* Waktu dan Tanggal */
+        .acara-detail .waktu,
+        .acara-detail .tanggal {
+            font-size: 24px;
+            font-family: "Lora", serif;
+            margin: 6px 0;
+        }
+
+        /* Lokasi */
+        .acara-detail .lokasi {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* Icon praying tangan */
+        .acara-detail .icon {
+            margin: 0 6px;
+            color: #4B1E12;
+        }
+
+        /* Ornamen garis dan bunga */
+        .line-decor {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .line-decor .line {
+            height: 1px;
+            width: 50px;
+            background-color: #4B1E12;
+            margin: 0 10px;
+            opacity: 0.4;
+        }
+
+        .line-decor .bunga-icon {
+            font-size: 18px;
+            color: #4B1E12;
+        }
+
+        /* Garis pemisah bawah */
+        .acara-divider {
+            margin-top: 20px;
+            border: none;
+            border-top: 1px dashed #4B1E12;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.6;
+        }
+
+        #acara .circle-container {
+            margin: -60px auto 0 auto;
+        }
+
+        /* END ACARA */
+
+        /* START MAPS */
+        #maps .maps-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .maps-frame {
+            width: 100%;
+            max-width: 250px;
+            height: 250px;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 1rem;
+        }
+
+        .maps-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .maps-info {
+            text-align: center;
+            font-family: 'Lora', serif;
+            color: #5e3c1b;
+        }
+
+        .maps-info h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .maps-button {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: #5e3c1b;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .maps-button:hover {
+            background-color: #814f23;
+        }
+
+        /* END MAPS */
+
+        /* START GIFTS */
+        #gifts {
+            text-align: center;
+            padding: 1.5rem;
+            color: #3a1a00;
+        }
+
+        #gifts h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            margin: -150px 0 10px 0;
+        }
+
+        #gifts p {
+            font-family: 'Lora', serif;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-cashless {
+            background-color: #3a0c00;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn-cashless:hover {
+            background-color: #5e1a00;
+        }
+
+        .cashless-wrapper {
+            max-width: 90%;
+            margin: 1rem auto;
+            padding: 1rem;
+            background-color: #fdfdfd;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .bank-card {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .bank-card img {
+            width: 80px;
+            height: auto;
+        }
+
+        .bank-card h3 {
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .copy-btn {
+            padding: 0.4rem 1rem;
+            background-color: #574D36;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* END GIFTS */
+
+        /* START THANKS */
+        #thanks {
+            text-align: center;
+            padding: 1.5rem;
+            color: #3a1a00;
+            position: relative;
+        }
+
+        #thanks h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            margin: -150px 0 10px 0;
+        }
+
+        #thanks p {
+            font-family: 'Lora', serif;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .social-footer {
+            margin-top: 6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Lora', serif;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            font-size: 0.75rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ig-link,
+        .wa-link {
+            color: #3a1a00;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .ig-link:hover,
+        .wa-link:hover {
+            color: #574D36;
+        }
+
+        .ig-link i,
+        .wa-link i {
+            font-size: 1rem;
+        }
+
+        #thanks .credit {
+            font-size: 0.75rem;
+            color: #8a6f56;
+            opacity: 0.75;
+            text-align: center;
+            margin-top: -2px;
+        }
+
+
+
+        /* END THANKS */
     </style>
 </head>
 
@@ -367,33 +882,154 @@
                 Invitation</button>
         </div>
         <div id="profile" class="page">
-            <h2>ANA & DITA & RADEA</h2>
-            <p>25 Maret 2024</p>
+            <p class="title">Undangan Metatah</p>
+
+            <div class="name">
+                <p class="animate__animated animate__fadeInDown">Ana Febriana Wijaya, S.Kom</p>
+                <p class="animate__animated animate__fadeInDown">Putri pertama dari pasangan</p>
+                <p class="animate__animated animate__fadeInDown">Sukarno & Ni Komang Trinioni</p>
+            </div>
+            <span>&amp;</span>
+            <div class="carousel-wrapper">
+                <div class="carousel">
+                    <div class="carousel-item active">
+                        <p class="animate__animated animate__fadeInDown">Ni Putu Pradnyaditha Nareshyari Swarna, S.Kom
+                        </p>
+                        <p class="animate__animated animate__fadeInDown">Putri pertama dari pasangan</p>
+                        <p class="animate__animated animate__fadeInDown">I Gede Suwarna & Ni Made Oktaviani</p>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="animate__animated animate__fadeInDown">I Made Radeadhitya Laksmana Swarna</p>
+                        <p class="animate__animated animate__fadeInDown">Putra kedua dari pasangan</p>
+                        <p class="animate__animated animate__fadeInDown">I Gede Suwarna & Ni Made Oktaviani</p>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
         </div>
+
         <div id="quotes" class="page">
-            <h2 class="animate__animated animate__fadeInDown">Quotes Cinta</h2>
+            <h2 class="animate__animated animate__fadeInDown">Rg Veda X.191.2</h2>
+            <p>"Satsyameva jayate nānṛtam"</p>
+            <p>Hanya kebenaran yang akan menang, bukan ketidakbenaran
+                Semoga Pikiran Baik Datang dari Segala Penjuru</p>
+            <p>"Yajur Weda XXV ;4"</p>
         </div>
         <div id="salam" class="page">
-            <h2 class="animate__animated animate__fadeInDown">Ucapan dan Doa</h2>
+            <div class="circle-container">
+                <div class="circle-inner">
+                    <img src="https://sin1.contabostorage.com/2db3bf1e16cd47a08843bb881e39cce7:indoinvite-staging/indoinvite-staging/indoinvite-staging/nikah/theme/images/1663620650.png"
+                        alt="Isi Tengah" />
+                </div>
+                <img class="circle-frame" src="https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-Bor.png"
+                    alt="Bingkai" />
+            </div>
+            <h2 class="animate__animated animate__fadeInDown">Om Swastyastu</h2>
+            <p>
+                Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan Yang Maha Esa, kami bermaksud
+                menyelenggarakan Upacara Mepandes putra/putri kami.
+            </p>
         </div>
         <div id="acara" class="page">
-            <h2 class="animate__animated animate__fadeInDown">Profil Mempelai</h2>
+            <div class="circle-container">
+                <div class="circle-inner">
+                    <img src="https://sin1.contabostorage.com/2db3bf1e16cd47a08843bb881e39cce7:indoinvite-staging/indoinvite-staging/indoinvite-staging/nikah/theme/images/1663620650.png"
+                        alt="Isi Tengah" />
+                </div>
+                <img class="circle-frame" src="https://indoinvite.com/nikah/template/pandora/pandora-classic/PC-Bor.png"
+                    alt="Bingkai" />
+            </div>
+            <h2 class="hari animate__animated animate__fadeInDown">RABU</h2>
+
+            <div class="acara-detail">
+                <!-- Ornamen dekoratif -->
+                <div class="line-decor">
+                    <span class="line"></span>
+                    <span class="bunga-icon">✿</span>
+                    <span class="line"></span>
+                </div>
+
+                <p class="judul-acara">
+                    <i class="icon ph-fill ph-hands-praying"></i>
+                    Acara Mapandes
+                    <i class="icon ph-fill ph-hands-praying"></i>
+                </p>
+
+                <p class="waktu">Pukul 09.00 - Selesai</p>
+                <p class="tanggal">27 . 08 . 2025</p>
+                <p class="lokasi">Banjar Banyubiru, Jembrana</p>
+
+                <!-- Ornamen dekoratif -->
+                <div class="line-decor">
+                    <span class="line"></span>
+                    <span class="bunga-icon">✿</span>
+                    <span class="line"></span>
+                </div>
+                <!-- Garis tipis pemisah -->
+                <!-- <hr class="acara-divider" /> -->
+            </div>
         </div>
+
+
         <div id="maps" class="page">
-            <h2 class="animate__animated animate__fadeInDown">Google Maps</h2>
-            <p><a href="#">Lihat Lokasi</a></p>
+            <div class="maps-container animate__animated animate__fadeIn">
+                <div class="maps-frame">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3947.517031160069!2d114.59518377501098!3d-8.350689391685995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOMKwMjEnMDIuNSJTIDExNMKwMzUnNTEuOSJF!5e0!3m2!1sid!2sid!4v1750135451477!5m2!1sid!2sid"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="maps-info">
+                    <h3>❖ Lokasi Acara ❖</h3>
+                    <p>Banjar Banyubiru, Jembrana </p>
+
+                    <a class="maps-button" target="_blank"
+                        href="https://maps.app.goo.gl/sEEak5bWnaRhD9V58?g_st=iw">Petunjuk Ke
+                        Lokasi</a>
+                </div>
+            </div>
         </div>
+
         <div id="rsvp" class="page">
             <h2 class="animate__animated animate__fadeInDown">Konfirmasi Kehadiran</h2>
         </div>
         <div id="gifts" class="page">
-            <h2 class="animate__animated animate__fadeInDown">Kado & Hadiah</h2>
-            <p><a href="#">Kirim via WhatsApp</a></p>
+            <h2 class="title animate__animated animate__fadeInDown">Tanda Kasih</h2>
+            <p>Terima kasih telah menambah semangat kegembiraan acara kami dengan kehadiran dan hadiah indah Anda.
+            </p>
+
+            <button class="btn-cashless" onclick="toggleCashless()">🎁 Cashless</button>
+
+            <div id="cashless-container" class="cashless-wrapper" style="display: none;">
+                <div class="bank-card">
+                    <img src="https://assets.satumomen.com/assets/logo-bca-biru-1687975058.png" alt="Mandiri">
+                    <div>
+                        <h3>0402982622</h3>
+                        <p>BCA : Yogi Prayoga</p>
+                        <button class="copy-btn" onclick="copyRekening('0402982622', this)">Salin Rekening</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div id="thanks" class="page">
-            <h2 class="animate__animated animate__fadeInDown">Lokasi Acara</h2>
-            <p>Jl. Contoh Lokasi No. 123</p>
+            <h2 class="title animate__animated animate__fadeInDown">Matur Sukma</h2>
+            <p>Terima kasih buat kamu yang sudah meluangkan waktu dan menjadi bagian pada acara kami.</p>
+
+            <div class="social-footer">
+                <div class="social-links">
+                    <a href="https://instagram.com/yogiprayoga_" target="_blank" class="ig-link" aria-label="Instagram">
+                        <i class="ph-fill ph-instagram-logo"></i> @yogiprayoga_
+                    </a>
+                    <a href="https://wa.me/628237188923" target="_blank" class="wa-link" aria-label="WhatsApp">
+                        <i class="ph-fill ph-whatsapp-logo"></i> 0822-3718-8923
+                    </a>
+                </div>
+                <p class="credit">© 2025 All rights reserved — by Yogi Prayoga</p>
+            </div>
         </div>
+
+
 
         <div class="menu" id="menu">
             <div class="menu-wrapper">
@@ -431,7 +1067,7 @@
             container.innerHTML = '';
             pageOrder.forEach(id => {
                 const btn = document.createElement('button');
-                btn.innerHTML = `<i class="icon ph-fill ${menuIcons[id]}" alt="${id}" /></i><span>${id.charAt(0).toUpperCase() + id.slice(1)}</span>`;
+                btn.innerHTML = `<i class="icon ph-fill ${menuIcons[id]}" alt="${id}" /></i><span>${id == 'rsvp' ? 'RSVP' : id.charAt(0).toUpperCase() + id.slice(1)}</span>`;
                 btn.onclick = () => showPage(id);
                 btn.dataset.pageId = id;
                 container.appendChild(btn);
@@ -531,6 +1167,103 @@
                 icon.src = 'https://cdn-icons-png.flaticon.com/512/727/727240.png';
             }
         }
+
+
+        // PROFILE CAROUSEL
+        const items = document.querySelectorAll('.carousel-item');
+        const dotsContainer = document.getElementById('carouselDots');
+        let currentSlide = 0;
+        let slideInterval = null;
+
+        function showSlide(index) {
+            items.forEach((item, i) => {
+                item.classList.remove('active', 'animate__animated', 'animate__fadeInUp');
+                dotsContainer.children[i].classList.remove('active');
+            });
+
+            // Tambahkan animasi hanya ke slide yang ditampilkan
+            items[index].classList.add('active', 'animate__animated', 'animate__fadeInUp');
+            dotsContainer.children[index].classList.add('active');
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % items.length;
+            showSlide(next);
+            resetInterval();
+        }
+
+        function prevSlide() {
+            const prev = (currentSlide - 1 + items.length) % items.length;
+            showSlide(prev);
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => nextSlide(), 5000);
+        }
+
+        // Generate dots
+        items.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.onclick = () => {
+                showSlide(i);
+                resetInterval();
+            };
+            dotsContainer.appendChild(dot);
+        });
+
+        showSlide(currentSlide);
+        slideInterval = setInterval(() => nextSlide(), 5000);
+        //END PROFILE CAROUSEL
+
+        //CASHLESS
+        function toggleCashless() {
+            const el = document.getElementById('cashless-container');
+            el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function copyRekening(text, btn) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        showCopySuccess(btn);
+                    })
+                    .catch(() => {
+                        fallbackCopy(text, btn);
+                    });
+            } else {
+                fallbackCopy(text, btn);
+            }
+        }
+
+        function fallbackCopy(text, btn) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = 0;
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const success = document.execCommand('copy');
+                if (success) showCopySuccess(btn);
+                else alert("Gagal menyalin");
+            } catch (err) {
+                alert("Peramban tidak mendukung salin otomatis.");
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        function showCopySuccess(btn) {
+            btn.innerText = "✅ Disalin!";
+            setTimeout(() => btn.innerText = "Salin Rekening", 2000);
+        }
+        //END CASHLESS
     </script>
 </body>
 
