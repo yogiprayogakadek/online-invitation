@@ -19,7 +19,6 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/mobile-menu.css') }}">
 
     <!-- useAnimations -->
     <script src="https://www.useanimations.com/lib/useAnimations.js"></script>
@@ -31,11 +30,356 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Main JavaScript -->
-    <script src="{{ asset('assets/js/main.js') }}" defer></script>
-
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Mobile Menu Styles -->
+    <style>
+        /* Hamburger Menu Styles */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #000000;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 12px;
+            z-index: 1002;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-toggle:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+
+        .nav-toggle span {
+            width: 20px;
+            height: 3px;
+            background: #000000;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .nav-toggle.active {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: #ff0000;
+        }
+
+        .nav-toggle.active span {
+            background: #ff0000;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Hamburger Button */
+        .mobile-nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #000000;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 12px;
+            z-index: 1002;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .mobile-nav-toggle:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+
+        .mobile-nav-toggle span {
+            width: 20px;
+            height: 3px;
+            background: #000000;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .mobile-nav-toggle.active {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: #ff0000;
+        }
+
+        .mobile-nav-toggle.active span {
+            background: #ff0000;
+        }
+
+        .mobile-nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 400px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .brand-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .brand-description {
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-list a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-list a:hover {
+            color: #007bff;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid #404040;
+        }
+
+        .copyright {
+            color: #b0b0b0;
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .social-link:hover {
+            background: rgba(0, 123, 255, 0.1);
+            border-color: #007bff;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .social-link span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Footer Responsive */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 3rem 0 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .social-link span {
+                display: none;
+            }
+
+            .social-link {
+                padding: 0.75rem;
+                min-width: 44px;
+                justify-content: center;
+            }
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .mobile-menu-overlay.active {
+            display: flex;
+        }
+
+        .mobile-menu-overlay .nav-link {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: #000000;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-overlay .nav-link:hover {
+            color: #007bff;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: none !important;
+            }
+
+            .mobile-nav-toggle {
+                display: flex !important;
+            }
+            
+            .nav-menu {
+                display: none !important;
+            }
+            
+            .nav-actions .btn {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -80,6 +424,23 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Hamburger Button (Always Visible on Mobile) -->
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <a href="#home" class="nav-link">Beranda</a>
+        <a href="#features" class="nav-link">Fitur</a>
+        <a href="#templates" class="nav-link">Template</a>
+        <a href="#pricing" class="nav-link">Harga</a>
+        <a href="#testimonials" class="nav-link">Testimoni</a>
+        <a href="#contact" class="nav-link">Kontak</a>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -498,13 +859,13 @@
                             <span>★★★★★</span>
                         </div>
                         <p class="testimonial-text">
-                            "Fitur RSVP otomatis sangat membantu dalam mengorganisir acara.
-                            Dashboard analytics-nya juga sangat informatif."
+                            "Fitur RSVP otomatis sangat membantu! Kami bisa langsung tahu siapa saja yang akan hadir
+                            tanpa harus menanyakan satu per satu."
                         </p>
                     </div>
                     <div class="testimonial-author">
                         <img class="lazy author-avatar"
-                            data-src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face"
+                            data-src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face"
                             alt="Ahmad Rizki">
                         <div class="author-info">
                             <h4 class="author-name">Ahmad Rizki</h4>
@@ -519,16 +880,16 @@
                             <span>★★★★★</span>
                         </div>
                         <p class="testimonial-text">
-                            "Sangat mudah digunakan! Dalam 10 menit undangan ulang tahun anak saya
-                            sudah jadi dan bisa langsung dibagikan."
+                            "Template-nya sangat beragam dan mudah dikustomisasi. Dalam hitungan menit,
+                            undangan ulang tahun anak saya sudah jadi!"
                         </p>
                     </div>
                     <div class="testimonial-author">
                         <img class="lazy author-avatar"
                             data-src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face"
-                            alt="Ibu Sari">
+                            alt="Siti Nurhaliza">
                         <div class="author-info">
-                            <h4 class="author-name">Ibu Sari</h4>
+                            <h4 class="author-name">Siti Nurhaliza</h4>
                             <p class="author-role">Ibu Rumah Tangga</p>
                         </div>
                     </div>
@@ -538,19 +899,18 @@
     </section>
 
     <!-- CTA Section -->
-    <section id="contact" class="cta">
+    <section class="cta">
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
                 <h2 class="cta-title">Siap Membuat Undangan Impian Anda?</h2>
                 <p class="cta-description">
                     Bergabunglah dengan ribuan pengguna yang telah mempercayai e-undanganku
-                    untuk acara spesial mereka
+                    untuk acara spesial mereka.
                 </p>
-                <div class="cta-actions">
-                    <button class="btn btn-white btn-large">Mulai Gratis Sekarang</button>
-                    <button class="btn btn-outline btn-large" style="border-color: #ffffff; color: #ffffff;">Lihat
-                        Demo</button>
-                </div>
+                <button class="btn btn-primary btn-large">
+                    <span>Mulai Sekarang - Gratis!</span>
+                    <div class="btn-icon"></div>
+                </button>
             </div>
         </div>
     </section>
@@ -565,108 +925,151 @@
                         <span class="brand-text">e-undanganku</span>
                     </div>
                     <p class="brand-description">
-                        Platform terdepan untuk membuat undangan online yang menakjubkan
-                        dengan fitur modern dan desain yang elegan.
+                        Solusi terdepan untuk undangan digital yang modern, elegan, dan mudah digunakan.
+                        Ciptakan momen tak terlupakan dengan teknologi terkini.
                     </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">📘</a>
-                        <a href="#" class="social-link">📷</a>
-                        <a href="#" class="social-link">🐦</a>
-                        <a href="#" class="social-link">📺</a>
-                    </div>
                 </div>
 
                 <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Produk</h4>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Produk</h4>
                         <ul class="footer-list">
-                            <li><a href="#" class="footer-link">Template</a></li>
-                            <li><a href="#" class="footer-link">Fitur</a></li>
-                            <li><a href="#" class="footer-link">Harga</a></li>
-                            <li><a href="#" class="footer-link">Demo</a></li>
+                            <li><a href="#templates">Template</a></li>
+                            <li><a href="#features">Fitur</a></li>
+                            <li><a href="#pricing">Harga</a></li>
+                            <li><a href="#">Demo</a></li>
                         </ul>
                     </div>
 
-                    <div class="footer-section">
-                        <h4>Perusahaan</h4>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Perusahaan</h4>
                         <ul class="footer-list">
-                            <li><a href="#" class="footer-link">Tentang Kami</a></li>
-                            <li><a href="#" class="footer-link">Blog</a></li>
-                            <li><a href="#" class="footer-link">Karir</a></li>
-                            <li><a href="#" class="footer-link">Kontak</a></li>
+                            <li><a href="#">Tentang Kami</a></li>
+                            <li><a href="#">Karir</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#contact">Kontak</a></li>
                         </ul>
                     </div>
 
-                    <div class="footer-section">
-                        <h4>Dukungan</h4>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Dukungan</h4>
                         <ul class="footer-list">
-                            <li><a href="#" class="footer-link">Bantuan</a></li>
-                            <li><a href="#" class="footer-link">Tutorial</a></li>
-                            <li><a href="#" class="footer-link">FAQ</a></li>
-                            <li><a href="#" class="footer-link">Komunitas</a></li>
+                            <li><a href="#">Bantuan</a></li>
+                            <li><a href="#">Tutorial</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Live Chat</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Legal</h4>
+                        <ul class="footer-list">
+                            <li><a href="#">Privasi</a></li>
+                            <li><a href="#">Syarat & Ketentuan</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p class="footer-copyright">© 2024 e-undanganku. Semua hak dilindungi.</p>
-                <div class="footer-legal">
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms of Service</a>
+                <p class="copyright">
+                    © 2024 e-undanganku. Semua hak dilindungi.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="social-link" title="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-link" title="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-link" title="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="{{ asset('assets/js/mobile-menu.js') }}"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-    
-    <!-- Debug Script for Mobile Menu -->
+    <!-- Main JavaScript -->
+    <script src="{{ asset('assets/js/main.js') }}" defer></script>
+
+    <!-- Simple Mobile Menu JavaScript -->
     <script>
-        // Simple debug to check elements
-        setTimeout(() => {
-            console.log('=== QUICK ELEMENT CHECK ===');
-            const toggle = document.getElementById('nav-toggle');
-            const menu = document.getElementById('nav-menu');
-            console.log('Toggle found:', !!toggle, toggle);
-            console.log('Menu found:', !!menu, menu);
-            
-            if (toggle && menu) {
-                console.log('✅ Elements exist! Adding manual click handler...');
-                toggle.addEventListener('click', function(e) {
-                    console.log('🔥 MANUAL CLICK DETECTED!');
-                    e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileNavLinks = mobileMenuOverlay.querySelectorAll('.nav-link');
+
+            // Function to toggle menu
+            function toggleMenu() {
+                const activeButton = window.innerWidth <= 768 ? mobileNavToggle : navToggle;
+                if (activeButton) {
+                    activeButton.classList.toggle('active');
+                    mobileMenuOverlay.classList.toggle('active');
                     
-                    const isActive = menu.classList.contains('manual-active');
-                    if (isActive) {
-                        menu.classList.remove('manual-active');
-                        menu.style.cssText = '';
-                        toggle.classList.remove('active');
-                        console.log('Menu closed manually');
+                    // Prevent body scroll when menu is open
+                    if (mobileMenuOverlay.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
                     } else {
-                        menu.classList.add('manual-active');
-                        menu.style.cssText = `
-                            position: fixed !important;
-                            top: 0 !important;
-                            left: 0 !important;
-                            width: 100vw !important;
-                            height: 100vh !important;
-                            background: rgba(255, 255, 255, 0.98) !important;
-                            display: flex !important;
-                            flex-direction: column !important;
-                            justify-content: center !important;
-                            align-items: center !important;
-                            z-index: 99999 !important;
-                            padding: 2rem !important;
-                        `;
-                        toggle.classList.add('active');
-                        console.log('Menu opened manually');
+                        document.body.style.overflow = '';
                     }
+                }
+            }
+
+            // Function to close menu
+            function closeMenu() {
+                if (navToggle) navToggle.classList.remove('active');
+                if (mobileNavToggle) mobileNavToggle.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Add event listeners for both buttons
+            if (navToggle) {
+                navToggle.addEventListener('click', toggleMenu);
+                navToggle.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    toggleMenu();
                 });
             }
-        }, 1000);
+
+            if (mobileNavToggle) {
+                mobileNavToggle.addEventListener('click', toggleMenu);
+                mobileNavToggle.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    toggleMenu();
+                });
+            }
+
+            // Close menu when clicking nav links
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close menu when clicking outside
+            mobileMenuOverlay.addEventListener('click', function(e) {
+                if (e.target === mobileMenuOverlay) {
+                    closeMenu();
+                }
+            });
+        });
     </script>
 </body>
 
