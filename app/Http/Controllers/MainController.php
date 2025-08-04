@@ -8,7 +8,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        return view('maintenance.index');
+        return view('errors.index');
         // return view('index');
     }
 }
