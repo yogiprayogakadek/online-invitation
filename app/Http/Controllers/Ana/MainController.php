@@ -31,6 +31,9 @@ class MainController extends Controller
         $fields = ['note', 'status', 'name'];
         $attendances = $this->attendanceService->getNote($fields);
         $ucapans = $this->ucapanService->getUcapanForDisplay();
+
+        $name = str_replace('-', ' ', $name);
+
         return view('ana.invitation', compact('attendances', 'ucapans', 'name'));
     }
 
