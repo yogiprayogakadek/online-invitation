@@ -26,6 +26,9 @@
     <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
+    <!-- Spline Viewer -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.44/build/spline-viewer.js"></script>
+
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -370,14 +373,383 @@
             .mobile-nav-toggle {
                 display: flex !important;
             }
-            
+
             .nav-menu {
                 display: none !important;
             }
-            
+
             .nav-actions .btn {
                 display: none !important;
             }
+        }
+
+        /* Spline Background Styles */
+        .spline-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInSpline 2s ease-in-out 0.5s forwards;
+        }
+
+        .spline-background spline-viewer {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            transform: scale(1.1);
+            animation: zoomInSpline 3s ease-out 1s forwards;
+            filter: blur(0.5px);
+            transition: filter 0.3s ease;
+        }
+
+        .spline-background:hover spline-viewer {
+            filter: blur(0px);
+        }
+
+        @keyframes fadeInSpline {
+            from { opacity: 0; }
+            to { opacity: 0.8; }
+        }
+
+        @keyframes zoomInSpline {
+            from { transform: scale(1.1); }
+            to { transform: scale(1); }
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.05) 0%, 
+                rgba(255, 255, 255, 0.1) 25%, 
+                rgba(0, 0, 0, 0.02) 50%, 
+                rgba(255, 255, 255, 0.05) 75%, 
+                rgba(0, 0, 0, 0.03) 100%);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glass morphism effect for content */
+        .hero-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            animation: contentSlideUp 1.5s ease-out 0.8s backwards;
+        }
+
+        @keyframes contentSlideUp {
+            from { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateY(0); 
+                opacity: 1; 
+            }
+        }
+
+        /* Enhanced text styles with better contrast */
+        .hero-title {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #000000 0%, #333333 50%, #000000 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGradientShift 4s ease infinite;
+        }
+
+        @keyframes titleGradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-description {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #333333;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Enhanced buttons with glass effect */
+        .hero-actions .btn {
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero-actions .btn-primary {
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            border-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .hero-actions .btn-primary:hover {
+            background: rgba(0, 0, 0, 0.95);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-actions .btn-glass {
+            background: rgba(255, 255, 255, 0.15);
+            color: #000000;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-actions .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Enhanced stats section */
+        .hero-stats {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #000000 0%, #444444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Enhanced floating shapes with dynamic colors */
+        .floating-shape {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.08) 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                rgba(0, 0, 0, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: floatSmooth 8s ease-in-out infinite;
+        }
+
+        .shape-1 { animation-delay: 0s; }
+        .shape-2 { animation-delay: 2s; }
+        .shape-3 { animation-delay: 4s; }
+        .shape-4 { animation-delay: 6s; }
+
+        @keyframes floatSmooth {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg) scale(1); 
+                opacity: 0.6;
+            }
+            25% { 
+                transform: translateY(-30px) rotate(90deg) scale(1.1); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-15px) rotate(180deg) scale(0.9); 
+                opacity: 1;
+            }
+            75% { 
+                transform: translateY(-45px) rotate(270deg) scale(1.05); 
+                opacity: 0.7;
+            }
+        }
+
+        /* Enhanced navbar with better glass effect */
+        .navbar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(40px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(60px);
+            box-shadow: 0 8px 48px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Enhanced scroll indicator */
+        .scroll-indicator {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .scroll-mouse {
+            border-color: rgba(0, 0, 0, 0.6);
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .scroll-wheel {
+            background: rgba(0, 0, 0, 0.6);
+            animation: scrollWheelSmooth 3s ease-in-out infinite;
+        }
+
+        @keyframes scrollWheelSmooth {
+            0%, 100% { 
+                transform: translateX(-50%) translateY(0); 
+                opacity: 1; 
+            }
+            50% { 
+                transform: translateX(-50%) translateY(16px); 
+                opacity: 0.3; 
+            }
+        }
+
+        /* Performance optimizations */
+        .spline-background spline-viewer {
+            will-change: transform, filter;
+            transform: translateZ(0);
+        }
+
+        .hero-content {
+            will-change: transform, opacity;
+            transform: translateZ(0);
+        }
+
+        .floating-shape {
+            will-change: transform, opacity;
+            transform: translateZ(0);
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .spline-background {
+                opacity: 0.6;
+            }
+            
+            .hero-content {
+                padding: 2rem;
+                margin: 1rem 0;
+            }
+            
+            .hero-stats {
+                padding: 1.5rem;
+                gap: 2rem;
+            }
+        }
+
+        /* Touch device optimizations */
+        .touch-device .spline-background {
+            opacity: 0.7 !important;
+        }
+
+        .touch-device .floating-shape {
+            animation-duration: 12s;
+        }
+
+        .touch-device .hero-content {
+            backdrop-filter: blur(15px);
+        }
+
+        /* Improved mobile performance */
+        @media (max-width: 480px) {
+            .spline-background {
+                opacity: 0.5;
+            }
+            
+            .hero-content {
+                padding: 1.5rem;
+                backdrop-filter: blur(10px);
+            }
+            
+            .floating-shape {
+                display: none; /* Hide on very small screens for performance */
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .spline-background {
+                filter: brightness(0.8) contrast(1.1);
+            }
+            
+            .hero-content {
+                background: rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.15);
+            }
+            
+            .hero-description {
+                background: rgba(0, 0, 0, 0.6);
+                color: #ffffff;
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            .spline-background {
+                opacity: 0.3 !important;
+            }
+            
+            .hero-content {
+                background: rgba(255, 255, 255, 0.95);
+                border: 2px solid #000000;
+            }
+        }
+
+        /* Loading state for Spline */
+        .spline-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            z-index: 10;
+            backdrop-filter: blur(20px);
+        }
+
+        .spline-loading::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f0f0f0;
+            border-top: 3px solid #000000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto 0;
+            display: block;
+        }
+
+        /* Ensure content is above Spline background */
+        .hero .container {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-background {
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
@@ -444,7 +816,13 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="three-container"></div>
+        <!-- Spline 3D Background -->
+        <div class="spline-background">
+            <div class="spline-loading" id="spline-loading">
+                <div>Loading 3D Experience...</div>
+            </div>
+            <spline-viewer url="https://prod.spline.design/EIGcTJGPFVze69Jp/scene.splinecode" id="spline-viewer"></spline-viewer>
+        </div>
 
         <div class="hero-background">
             <div class="floating-shape shape-1"></div>
@@ -979,25 +1357,29 @@
                 <div class="social-links">
                     <a href="#" class="social-link" title="Facebook">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                         </svg>
                         <span>Facebook</span>
                     </a>
                     <a href="#" class="social-link" title="Instagram">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                         </svg>
                         <span>Instagram</span>
                     </a>
                     <a href="#" class="social-link" title="Twitter">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                         </svg>
                         <span>Twitter</span>
                     </a>
                     <a href="#" class="social-link" title="LinkedIn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                         <span>LinkedIn</span>
                     </a>
@@ -1023,7 +1405,7 @@
                 if (activeButton) {
                     activeButton.classList.toggle('active');
                     mobileMenuOverlay.classList.toggle('active');
-                    
+
                     // Prevent body scroll when menu is open
                     if (mobileMenuOverlay.classList.contains('active')) {
                         document.body.style.overflow = 'hidden';
@@ -1070,6 +1452,183 @@
                 }
             });
         });
+
+        // Enhanced Spline Integration and Smooth UX
+        document.addEventListener('DOMContentLoaded', function() {
+            const splineViewer = document.getElementById('spline-viewer');
+            const splineLoading = document.getElementById('spline-loading');
+            let splineLoaded = false;
+
+            // Hide loading indicator when Spline loads
+            function hideSplineLoading() {
+                if (splineLoading) {
+                    splineLoading.style.opacity = '0';
+                    setTimeout(() => {
+                        splineLoading.style.display = 'none';
+                    }, 500);
+                }
+                splineLoaded = true;
+            }
+
+            // Show loading if Spline takes too long
+            setTimeout(() => {
+                if (!splineLoaded && splineLoading) {
+                    splineLoading.innerHTML = '<div>Loading 3D Experience...<br><small>This may take a moment</small></div>';
+                }
+            }, 3000);
+
+            // Hide loading after maximum wait time
+            setTimeout(() => {
+                if (!splineLoaded) {
+                    hideSplineLoading();
+                }
+            }, 8000);
+
+            // Listen for Spline events
+            if (splineViewer) {
+                splineViewer.addEventListener('load', hideSplineLoading);
+                splineViewer.addEventListener('spline-viewer-load', hideSplineLoading);
+                
+                // Alternative fallback for older Spline versions
+                setTimeout(() => {
+                    if (splineViewer.querySelector('canvas') || splineViewer.shadowRoot?.querySelector('canvas')) {
+                        hideSplineLoading();
+                    }
+                }, 2000);
+            }
+
+            // Performance optimizations for smooth animations
+            let ticking = false;
+            
+            function updateAnimations() {
+                // Throttle animation updates for better performance
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        // Update floating shapes or other animations if needed
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            // Smooth scroll behavior
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Enhanced parallax effect for hero content
+            let scrollY = 0;
+            const heroContent = document.querySelector('.hero-content');
+            const heroBackground = document.querySelector('.hero-background');
+
+            function updateParallax() {
+                scrollY = window.pageYOffset;
+                const speed = 0.5;
+                
+                if (heroContent) {
+                    heroContent.style.transform = `translateY(${scrollY * speed * 0.3}px)`;
+                }
+                
+                if (heroBackground) {
+                    heroBackground.style.transform = `translateY(${scrollY * speed * 0.5}px)`;
+                }
+            }
+
+            // Throttled scroll listener
+            let scrollTicking = false;
+            window.addEventListener('scroll', () => {
+                if (!scrollTicking) {
+                    requestAnimationFrame(() => {
+                        updateParallax();
+                        scrollTicking = false;
+                    });
+                    scrollTicking = true;
+                }
+            });
+
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for smooth entrance animations
+            document.querySelectorAll('.stat-item, .hero-actions .btn').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Enhanced counter animation
+            const counters = document.querySelectorAll('.counter');
+            const animateCounter = (counter) => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current).toLocaleString();
+                }, 16);
+            };
+
+            // Trigger counter animation when in view
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+
+            // Reduce motion for users who prefer it
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.style.scrollBehavior = 'auto';
+                // Disable heavy animations for accessibility
+                document.querySelectorAll('.floating-shape').forEach(shape => {
+                    shape.style.animation = 'none';
+                });
+            }
+
+            // Touch device optimizations
+            if ('ontouchstart' in window) {
+                document.body.classList.add('touch-device');
+                // Reduce Spline opacity on mobile for better performance
+                if (splineViewer) {
+                    splineViewer.style.opacity = '0.7';
+                }
+            }
+        });
+    </script>
     </script>
 </body>
 
