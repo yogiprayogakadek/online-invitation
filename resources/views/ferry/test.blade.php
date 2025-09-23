@@ -37,7 +37,7 @@
                 <div class="elementor-background-video-embed" autoplay muted playsinline></div>
             </div>
         </div>
-        <div data-dce-background-image-url="https://groovepublic.com/wp-content/uploads/2025/06/1-45_compressed-1.jpg"
+        <div data-dce-background-image-url="{{ asset('assets/images/ferry/home_bg.jpg') }}"
             class="elementor-element elementor-element-31e5c03c e-con-full hidden e-flex e-con e-parent"
             data-id="31e5c03c" data-element_type="container" id="section-cover"
             data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -168,7 +168,7 @@
                                 Bārakallāhu lakumā wa bāraka ʿalaikumā wa jamaʿa bainakumā fī khair<br />
                                 <br />
                                 “Semoga Allah memberkahi kalian berdua<br />
-                                melimpahkan keberkahan atas kalian, 
+                                melimpahkan keberkahan atas kalian,
                                 dan mengumpulkan kalian berdua dalam kebaikan.”<br />
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                     data-widget_type="image.default">
                     <div class="elementor-widget-container">
                         <img fetchpriority="high" decoding="async" width="1399" height="2100"
-                            src="{{ asset('assets/images/ferry/groom.jpg') }}"
+                            src="{{ asset('assets/images/ferry/groom_bride/groom.jpeg') }}"
                             class="attachment-large size-large wp-image-479993" alt="" />
                     </div>
                 </div>
@@ -243,7 +243,7 @@
                     data-widget_type="image.default">
                     <div class="elementor-widget-container">
                         <img decoding="async" width="1400" height="2100"
-                            src="{{ asset('assets/images/ferry/bride.jpg') }}"
+                            src="{{ asset('assets/images/ferry/groom_bride/bride.jpeg') }}"
                             class="attachment-large size-large wp-image-478572" alt="" />
                     </div>
                 </div>
@@ -268,7 +268,7 @@
                     data-aos-anchor-placement="center" data-widget_type="text-editor.default">
                     <div class="elementor-widget-container">
                         Putri kedua dari pasangan<br />
-                        Didik Supringadi &amp; Ni Kadek Diah Surani </div>
+                        H. Didik Supringadi, S.H. &amp; Ni Kadek Diah Surani, S.Sos. </div>
                 </div>
                 <div data-dce-background-color="#61CE7000"
                     class="elementor-element elementor-element-1cec47b9 elementor-align-left elementor-widget-mobile__width-initial elementor-widget__width-initial wdp-sticky-section-no elementor-widget elementor-widget-button"
@@ -592,7 +592,6 @@
                                         linkField.value = window.location.href;
                                     }
                                 });
-
 
                                 //jumlah max
                                 // Ambil parameter dari URL
@@ -1171,8 +1170,8 @@
                                             data-id="2dc153b" data-element_type="widget"
                                             data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
-                                                <h2 class="elementor-heading-title elementor-size-default">I Kadek Yogi
-                                                    Prayoga</h2>
+                                                <h2 class="elementor-heading-title elementor-size-default">Kiki Adelya
+                                                </h2>
                                             </div>
                                         </div>
                                     </div>
@@ -1185,7 +1184,7 @@
                                             data-widget_type="heading.default">
                                             <div class="elementor-widget-container">
                                                 <h2 class="elementor-heading-title elementor-size-default">BCA<br />
-                                                    0402982622</h2>
+                                                    4160542433</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -1222,7 +1221,7 @@
                                                         </span>
                                                     </button>
                                                     <textarea class="elementor-size-sm dce-clipboard-value elementor-field-textual dce-offscreen dce-block"
-                                                        id="dce-clipboard-value-1" aria-hidden="true">0402982622</textarea>
+                                                        id="dce-clipboard-value-1" aria-hidden="true">4160542433</textarea>
                                                 </div>
 
                                                 <script>
@@ -1341,7 +1340,7 @@
                                 data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:300}"
                                 data-widget_type="image.default">
                                 <div class="elementor-widget-container">
-                                    <img decoding="async" src="{{ asset('assets/images/ferry/home.jpg') }}"
+                                    <img decoding="async" src="{{ asset('assets/images/ferry/rekening.jpg') }}"
                                         title="1-59_compressed" alt="1-59_compressed" loading="lazy" />
                                 </div>
                             </div>
@@ -1361,7 +1360,7 @@
                 </div>
                 <div class="elementor-element elementor-element-fdfe8fd dce_masking-none wdp-sticky-section-no elementor-widget elementor-widget-video"
                     data-id="fdfe8fd" data-element_type="widget"
-                    data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/youtu.be\/cWJzFEbDrLw&quot;,&quot;loop&quot;:&quot;yes&quot;,&quot;modestbranding&quot;:&quot;yes&quot;,&quot;image_overlay&quot;:{&quot;id&quot;:479309,&quot;url&quot;:&quot;https:\/\/groovepublic.com\/wp-content\/uploads\/2025\/06\/Sequence-02.00_02_29_06.Still001_compressed-1.jpg&quot;},&quot;show_image_overlay&quot;:&quot;yes&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;}"
+                    data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/youtu.be\/lHBuzl7QBE8&quot;,&quot;loop&quot;:&quot;yes&quot;,&quot;modestbranding&quot;:&quot;yes&quot;,&quot;image_overlay&quot;:{&quot;id&quot;:479309,&quot;url&quot;:&quot;https:\/\/groovepublic.com\/wp-content\/uploads\/2025\/06\/Sequence-02.00_02_29_06.Still001_compressed-1.jpg&quot;},&quot;show_image_overlay&quot;:&quot;yes&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;}"
                     data-widget_type="video.default">
                     <div class="elementor-widget-container">
                         <div class="elementor-wrapper elementor-open-inline">
@@ -1418,81 +1417,171 @@
                             <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
                                 href="{{ asset('assets/images/ferry/galleries/3.jpg') }}"
                                 data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
-                                data-elementor-lightbox-title="1-45_compressed"
-                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTI5LCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtNDVfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
+                                data-elementor-lightbox-title="1-112_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMzLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTEyX2NvbXByZXNzZWQtMS5qcGciLCJzbGlkZXNob3ciOiJhYWVmOGI4In0%3D">
                                 <div class="e-gallery-image elementor-gallery-item__image"
                                     data-thumbnail="{{ asset('assets/images/ferry/galleries/3.jpg') }}"
                                     data-width="1400" data-height="2100" aria-label="" role="img"></div>
                                 <div class="elementor-gallery-item__overlay"></div>
                             </a>
                             <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
-                                href="{{ asset('assets/images/ferry/galleries/1.jpg') }}"
-                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
-                                data-elementor-lightbox-title="1-31_compressed"
-                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTQwLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMzFfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
-                                <div class="e-gallery-image elementor-gallery-item__image"
-                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/1.jpg') }}"
-                                    data-width="1399" data-height="2100" aria-label="" role="img"></div>
-                                <div class="elementor-gallery-item__overlay"></div>
-                            </a>
-                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
                                 href="{{ asset('assets/images/ferry/galleries/4.jpg') }}"
-                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
-                                data-elementor-lightbox-title="1-19_compressed"
-                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTM5LCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
-                                <div class="e-gallery-image elementor-gallery-item__image"
-                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/4.jpg') }}"
-                                    data-width="2100" data-height="1400" aria-label="" role="img"></div>
-                                <div class="elementor-gallery-item__overlay"></div>
-                            </a>
-                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
-                                href="{{ asset('assets/images/ferry/galleries/1.jpg') }}"
-                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
-                                data-elementor-lightbox-title="1-112_compressed"
-                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMzLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTEyX2NvbXByZXNzZWQtMS5qcGciLCJzbGlkZXNob3ciOiJhYWVmOGI4In0%3D">
-                                <div class="e-gallery-image elementor-gallery-item__image"
-                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/1.jpg') }}"
-                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
-                                <div class="elementor-gallery-item__overlay"></div>
-                            </a>
-                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
-                                href="{{ asset('assets/images/ferry/galleries/2.jpg') }}"
                                 data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
                                 data-elementor-lightbox-title="1-89_compressed"
                                 data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMyLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtODlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
                                 <div class="e-gallery-image elementor-gallery-item__image"
-                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/2.jpg') }}"
-                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
-                                <div class="elementor-gallery-item__overlay"></div>
-                            </a>
-                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
-                                href="{{ asset('assets/images/ferry/galleries/3.jpg') }}"
-                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
-                                data-elementor-lightbox-title="1-45_compressed"
-                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTI5LCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtNDVfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
-                                <div class="e-gallery-image elementor-gallery-item__image"
-                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/3.jpg') }}"
-                                    data-width="2100" data-height="1400" aria-label="" role="img"></div>
-                                <div class="elementor-gallery-item__overlay"></div>
-                            </a>
-                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
-                                href="{{ asset('assets/images/ferry/galleries/4.jpg') }}"
-                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
-                                data-elementor-lightbox-title="1-19_compressed"
-                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTM5LCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
-                                <div class="e-gallery-image elementor-gallery-item__image"
                                     data-thumbnail="{{ asset('assets/images/ferry/galleries/4.jpg') }}"
                                     data-width="1400" data-height="2100" aria-label="" role="img"></div>
                                 <div class="elementor-gallery-item__overlay"></div>
                             </a>
                             <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
-                                href="{{ asset('assets/images/ferry/galleries/1.jpg') }}"
+                                href="{{ asset('assets/images/ferry/galleries/10.jpg') }}"
                                 data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
-                                data-elementor-lightbox-title="1-31_compressed"
-                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTQwLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMzFfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
+                                data-elementor-lightbox-title="1-89_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMyLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtODlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
                                 <div class="e-gallery-image elementor-gallery-item__image"
-                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/1.jpg') }}"
-                                    data-width="1399" data-height="2100" aria-label="" role="img"></div>
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/10.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/11.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-112_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMzLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTEyX2NvbXByZXNzZWQtMS5qcGciLCJzbGlkZXNob3ciOiJhYWVmOGI4In0%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/11.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/12.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-89_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMyLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtODlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/12.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/13.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-112_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMzLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTEyX2NvbXByZXNzZWQtMS5qcGciLCJzbGlkZXNob3ciOiJhYWVmOGI4In0%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/13.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/14.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-89_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMyLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtODlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/14.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/15.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-112_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMzLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTEyX2NvbXByZXNzZWQtMS5qcGciLCJzbGlkZXNob3ciOiJhYWVmOGI4In0%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/15.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/16.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-89_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMyLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtODlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/16.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/17.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-112_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMzLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTEyX2NvbXByZXNzZWQtMS5qcGciLCJzbGlkZXNob3ciOiJhYWVmOGI4In0%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/17.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/18.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-89_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMyLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtODlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/18.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/19.jpeg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-89_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMyLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtODlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/19.jpeg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/5.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-112_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMzLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTEyX2NvbXByZXNzZWQtMS5qcGciLCJzbGlkZXNob3ciOiJhYWVmOGI4In0%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/5.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/6.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-89_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMyLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtODlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/6.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/7.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-112_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMzLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTEyX2NvbXByZXNzZWQtMS5qcGciLCJzbGlkZXNob3ciOiJhYWVmOGI4In0%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/7.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/8.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-89_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMyLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtODlfY29tcHJlc3NlZC0xLmpwZyIsInNsaWRlc2hvdyI6ImFhZWY4YjgifQ%3D%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/8.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
+                                <div class="elementor-gallery-item__overlay"></div>
+                            </a>
+                            <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
+                                href="{{ asset('assets/images/ferry/galleries/9.jpg') }}"
+                                data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="aaef8b8"
+                                data-elementor-lightbox-title="1-112_compressed"
+                                data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDc4NTMzLCJ1cmwiOiJodHRwczpcL1wvZ3Jvb3ZlcHVibGljLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyNVwvMDZcLzEtMTEyX2NvbXByZXNzZWQtMS5qcGciLCJzbGlkZXNob3ciOiJhYWVmOGI4In0%3D">
+                                <div class="e-gallery-image elementor-gallery-item__image"
+                                    data-thumbnail="{{ asset('assets/images/ferry/galleries/9.jpg') }}"
+                                    data-width="1400" data-height="2100" aria-label="" role="img"></div>
                                 <div class="elementor-gallery-item__overlay"></div>
                             </a>
                         </div>
@@ -1544,8 +1633,8 @@
                 </div>
             </div>
         </div>
-        <div class="elementor-element elementor-element-6982c326 e-flex e-con-boxed e-con e-parent" data-id="6982c326"
-            data-element_type="container">
+        <div class="elementor-element elementor-element-6982c326 e-flex e-con-boxed e-con e-parent"
+            data-id="6982c326" data-element_type="container">
             <div class="e-con-inner">
                 <div class="elementor-element elementor-element-125eb89b e-con-full e-flex e-con e-child"
                     data-id="125eb89b" data-element_type="container">
@@ -1592,60 +1681,6 @@
                 </div>
             </div>
         </div>
-        /* <div class="elementor-element elementor-element-1fee823b e-con-full e-flex e-con e-parent"
-            data-id="1fee823b" data-element_type="container">
-            <div class="elementor-element elementor-element-edfe32b e-flex e-con-boxed e-con e-child"
-                data-id="edfe32b" data-element_type="container">
-                <div class="e-con-inner">
-                    <div class="elementor-element elementor-element-436b53c1 wdp-sticky-section-no elementor-widget elementor-widget-heading"
-                        data-id="436b53c1" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h3 class="elementor-heading-title elementor-size-default"><a
-                                    href="https://groovepublic.com/">CREATED BY</a></h3>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-47949ad elementor-align-center elementor-mobile-align-center elementor-widget-mobile__width-inherit elementor-icon-list--layout-inline elementor-widget__width-inherit elementor-list-item-link-full_width wdp-sticky-section-no elementor-widget elementor-widget-icon-list"
-                        data-id="47949ad" data-element_type="widget" data-widget_type="icon-list.default">
-                        <div class="elementor-widget-container">
-                            <ul class="elementor-icon-list-items elementor-inline-items">
-                                <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="https://wa.link/amk9ua" target="_blank" rel="noopener">
-
-                                        <span class="elementor-icon-list-icon">
-                                            <i aria-hidden="true" class="fab fa-whatsapp"></i> </span>
-                                        <span class="elementor-icon-list-text">+62 813-2757-7133</span>
-                                    </a>
-                                </li>
-                                <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="https://www.instagram.com/groovepublic.id/" target="_blank"
-                                        rel="noopener">
-
-                                        <span class="elementor-icon-list-icon">
-                                            <i aria-hidden="true" class="fab fa-instagram"></i> </span>
-                                        <span class="elementor-icon-list-text">GROOVEPUBLIC.ID</span>
-                                    </a>
-                                </li>
-                                <li class="elementor-icon-list-item elementor-inline-item">
-                                    <a href="http://groovepublic.com/" target="_blank">
-
-                                        <span class="elementor-icon-list-icon">
-                                            <i aria-hidden="true" class="fas fa-globe-africa"></i> </span>
-                                        <span class="elementor-icon-list-text">groovepublic.com</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="elementor-element elementor-element-5a075b85 wdp-sticky-section-no elementor-widget elementor-widget-heading"
-                        data-id="5a075b85" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                            <h3 class="elementor-heading-title elementor-size-default"><a
-                                    href="https://groovepublic.com/">© All rights reserved by groovepublic</a></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> */
         <div class="elementor-element elementor-element-bd268de hidden e-flex e-con-boxed e-con e-parent"
             data-id="bd268de" data-element_type="container">
             <div class="e-con-inner">
@@ -1728,7 +1763,7 @@
 
                                 <div class="elementor-icon-wrapper" id="mute-sound" style="display: none;">
                                     <div class="elementor-icon">
-                                        <i aria-hidden="true" class="far fa-pause-circle"></i>
+                                        <i aria-hidden="true" class="fas fa-pause-circle"></i>
                                     </div>
                                 </div>
 
@@ -1835,16 +1870,6 @@
                                                                             class="fas fa-arrow-right"></i> </span>
                                                                     <span class="elementor-icon-list-text">Love
                                                                         Story</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="elementor-icon-list-item">
-                                                                <a href="#weddingevent">
-
-                                                                    <span class="elementor-icon-list-icon">
-                                                                        <i aria-hidden="true"
-                                                                            class="fas fa-arrow-right"></i> </span>
-                                                                    <span class="elementor-icon-list-text">Wedding
-                                                                        Event</span>
                                                                 </a>
                                                             </li>
                                                             <li class="elementor-icon-list-item">
@@ -3135,44 +3160,6 @@
         });
     </script>
 
-
-
-
-
-    <script type="text/javascript">
-        document.addEventListener("click", function(e) {
-            if (e.target.classList.contains("delete-row")) {
-                const rowId = e.target.dataset.id;
-                if (!confirm("Apakah Anda yakin ingin menghapus baris ini?")) {
-                    return;
-                }
-                fetch('https://groovepublic.com/wp-admin/admin-ajax.php', {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/x-www-form-urlencoded",
-                        },
-                        body: new URLSearchParams({
-                            action: "delete_row",
-                            row_id: rowId,
-                        }),
-                    })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.success) {
-                            alert(data.message);
-                            e.target.closest("tr").remove();
-                            fetchData();
-                        } else {
-                            alert(data.message || "Gagal menghapus baris.");
-                        }
-                    })
-                    .catch((error) => {
-                        console.error("Error:", error);
-                        alert("Terjadi kesalahan saat menghapus baris.");
-                    });
-            }
-        });
-    </script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             // Fungsi untuk membuat HTML komentar
@@ -3360,8 +3347,7 @@
                                                         id="form-field-bank_tujuan"
                                                         class="elementor-field-textual elementor-size-sm"
                                                         required="required" aria-required="true">
-                                                        <option value="I Kadek Yogi Prayoga BCA">I Kadek Yogi
-                                                            Prayoga
+                                                        <option value="Kiki Adelya">Kiki Adelya
                                                             BCA</option>
                                                     </select>
                                                 </div>
