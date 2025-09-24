@@ -16,8 +16,15 @@ Route::prefix('/ana')->name('ana.')->controller(MainController::class)->group(fu
 Route::prefix('/ferry-adel')->name('ferry-adel.')->controller(FerryMainController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::post('/ucapan', 'store')->name('ucapan.store');
+    Route::post('/gifts', 'storeGifts')->name('gifts.store');
     Route::get('/comment', 'getComment')->name('comment.get');
     Route::get('/to/{name}', 'getName')->name('invitation.name');
+
+    // ADMIN
+    Route::get('/admin-wedding', 'adminIndex')->name('admin');
+    Route::get('/admin-wedding/attendance', 'getAttendance')->name('admin.attendance');
+    Route::delete('/admin-wedding/attendance', 'attendanceDelete')->name('admin.delete.comment');
+    Route::get('/admin-wedding/gifts', 'getGift')->name('admin.gifts');
 });
 
 

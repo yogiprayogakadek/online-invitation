@@ -9,6 +9,6 @@ class MainController extends Controller
     public function index()
     {
         // return view('errors.index');
-        return view('index');
+        return view('_index');
     }
 }
