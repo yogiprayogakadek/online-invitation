@@ -1,7 +1,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <script>
+        // Matikan semua console bawaan
+        console.log = function() {};
+        console.error = function() {};
+        console.warn = function() {};
+        console.info = function() {};
+        console.debug = function() {};
+    </script>
 
     <style type="text/css">
         .wdp-comment-text img {
@@ -520,13 +527,13 @@
     <style id='elementor-frontend-inline-css'>
         .elementor-478304 .elementor-element.elementor-element-2b95209c:not(.elementor-motion-effects-element-type-background),
         .elementor-478304 .elementor-element.elementor-element-2b95209c>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-            background: url("https://groovepublic.com/wp-content/uploads/2025/06/1-112_compressed-1.jpg") 50% 50%;
+            background: url("{{ asset('assets/images/ferry/galleries/home_bg.jpg') }}") 50% 50%;
             background-size: cover;
         }
 
         .elementor-478304 .elementor-element.elementor-element-31e5c03c:not(.elementor-motion-effects-element-type-background),
         .elementor-478304 .elementor-element.elementor-element-31e5c03c>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-            background-image: url("{{ asset('assets/images/ferry/home.jpg') }}");
+            background-image: url("{{ asset('assets/images/ferry/home_bg.jpg') }}");
         }
 
         .elementor-478304 .elementor-element.elementor-element-44a7ee4a:not(.elementor-motion-effects-element-type-background),
