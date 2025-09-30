@@ -5,6 +5,7 @@ body.lightbox-open > *:not(.custom-lightbox) {
 
 body.lightbox-open {
     overflow: hidden !important;
+    transition: opacity 0.2s ease;
 }
 
 /* Hide semua elemen WordPress/Elementor saat lightbox aktif */
@@ -112,15 +113,16 @@ body.lightbox-open .custom-lightbox * {
     height: 100% !important;
     background: rgba(0, 0, 0, 0.95) !important;
     z-index: 2147483647 !important;
-    animation: fadeIn 0.3s ease;
     overflow: hidden !important;
     isolation: isolate !important;
+    transition: opacity 0.3s ease;
 }
 
 .custom-lightbox.active {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    animation: fadeIn 0.3s ease;
 }
 
 .custom-lightbox-content {
@@ -256,11 +258,11 @@ body.lightbox-open .custom-lightbox * {
     }
 
     .custom-lightbox-prev {
-        left: 10px;
+        left: 10px !important;
     }
 
     .custom-lightbox-next {
-        right: 10px;
+        right: 10px !important;
     }
 
     .custom-lightbox-close {
