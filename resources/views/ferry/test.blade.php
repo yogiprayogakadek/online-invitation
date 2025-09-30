@@ -1433,38 +1433,37 @@
                 </div>
 
                 <div class="custom-gallery-wrapper">
-                    <div class="custom-gallery-container" id="customGallery">
-                        @php
-                            $order = [1, 2, 3, 4, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 6, 7, 8, 9];
-                        @endphp
+    <div class="custom-gallery-container" id="customGallery">
+        @php
+            $order = [1, 2, 3, 4, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 6, 7, 8, 9];
+        @endphp
 
-                        @foreach ($order as $index => $i)
-                            @php
-                                $ext = $i == 19 ? 'jpeg' : 'jpg';
-                                $imgPath = asset("assets/images/ferry/galleries/{$i}.{$ext}");
-                            @endphp
+        @foreach ($order as $index => $i)
+            @php
+                $ext = $i == 19 ? 'jpeg' : 'jpg';
+                $imgPath = asset("assets/images/ferry/galleries/{$i}.{$ext}");
+            @endphp
 
-                            <div class="custom-gallery-item" data-index="{{ $index }}"
-                                data-image="{{ $imgPath }}">
-                                <img src="{{ $imgPath }}" alt="Gallery {{ $i }}" loading="lazy"
-                                    width="1400" height="2100">
-                                <div class="custom-gallery-overlay"></div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+            <div class="custom-gallery-item" data-index="{{ $index }}" data-image="{{ $imgPath }}">
+                <img src="{{ $imgPath }}"
+                     alt="Gallery {{ $i }}"
+                     loading="lazy"
+                     width="1400"
+                     height="2100">
+                <div class="custom-gallery-overlay"></div>
+            </div>
+        @endforeach
+    </div>
+</div>
 
-                <div class="custom-lightbox" id="customLightbox">
-                    <button class="custom-lightbox-close" id="closeLightbox" aria-label="Close">&times;</button>
-                    <button class="custom-lightbox-nav custom-lightbox-prev" id="prevSlide"
-                        aria-label="Previous">&#10094;</button>
-                    <div class="custom-lightbox-content">
-                        <img class="custom-lightbox-image" id="lightboxImage" src="" alt="Gallery Image">
-                    </div>
-                    <button class="custom-lightbox-nav custom-lightbox-next" id="nextSlide"
-                        aria-label="Next">&#10095;</button>
-                    <div class="custom-lightbox-counter" id="lightboxCounter"></div>
-                </div>
+<div class="custom-lightbox" id="customLightbox">
+    <button class="custom-lightbox-close" id="closeLightbox" aria-label="Close">&times;</button>
+    <div class="custom-lightbox-content">
+        <img class="custom-lightbox-image" id="lightboxImage" src="" alt="Gallery Image">
+    </div>
+    <div class="custom-lightbox-counter" id="lightboxCounter"></div>
+    <div class="swipe-indicator" id="swipeIndicator">← Swipe untuk navigasi →</div>
+</div>
 
 
                 <div class="elementor-element elementor-element-27464a2 wdp-sticky-section-no elementor-widget elementor-widget-html"
