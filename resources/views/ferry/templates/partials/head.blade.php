@@ -527,7 +527,7 @@
     <style id='elementor-frontend-inline-css'>
         .elementor-478304 .elementor-element.elementor-element-2b95209c:not(.elementor-motion-effects-element-type-background),
         .elementor-478304 .elementor-element.elementor-element-2b95209c>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-            background: url("{{ asset('assets/images/ferry/galleries/home_bg.jpg') }}") 50% 50%;
+            background: url("{{ asset('assets/images/ferry/home_bg.jpg') }}") 50% 50%;
             background-size: cover;
         }
 
@@ -1478,6 +1478,9 @@
             display: none;
         }
     </style>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/ferry/slideshow.css') }}">
+
     <style id="wp-custom-css">
         html {
             scroll-behavior: smooth;

@@ -1903,6 +1903,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+<script src="{{ asset('assets/js/ferry/slideshow.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const lightbox = document.getElementById('customLightbox');
+        if (lightbox && lightbox.parentNode !== document.body) {
+            document.body.appendChild(lightbox);
+        }
+    });
+</script>
 <script>
     $(document).ready(function() {
         function refreshHtmlKomentar() {

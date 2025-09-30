@@ -19,6 +19,7 @@ class MainController extends Controller
     {
         $comments = $this->commentService->getAllComments();
         return view('ferry.test', compact('comments'));
+        // return view('ferry.slideshow');
     }
 
     public function store(Request $request)

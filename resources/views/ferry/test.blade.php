@@ -1431,45 +1431,42 @@
                         </div>
                     </div>
                 </div>
-                <div class="elementor-element elementor-element-aaef8b8 wdp-sticky-section-no elementor-widget elementor-widget-gallery"
-                    data-id="aaef8b8" data-element_type="widget"
-                    data-settings="{&quot;gallery_layout&quot;:&quot;justified&quot;,&quot;ideal_row_height&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:289,&quot;sizes&quot;:[]},&quot;ideal_row_height_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:239,&quot;sizes&quot;:[]},&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:9,&quot;sizes&quot;:[]},&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:8,&quot;sizes&quot;:[]},&quot;lazyload&quot;:&quot;yes&quot;,&quot;ideal_row_height_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:150,&quot;sizes&quot;:[]},&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;link_to&quot;:&quot;file&quot;,&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}"
-                    data-widget_type="gallery.default">
-                    <div class="elementor-widget-container">
-                        <div class="elementor-gallery__container">
+
+                <div class="custom-gallery-wrapper">
+                    <div class="custom-gallery-container" id="customGallery">
+                        @php
+                            $order = [1, 2, 3, 4, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 6, 7, 8, 9];
+                        @endphp
+
+                        @foreach ($order as $index => $i)
                             @php
-                                $order = [1, 2, 3, 4, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 6, 7, 8, 9];
+                                $ext = $i == 19 ? 'jpeg' : 'jpg';
+                                $imgPath = asset("assets/images/ferry/galleries/{$i}.{$ext}");
                             @endphp
 
-                            @foreach ($order as $i)
-                                @php
-                                    $ext = $i == 19 ? 'jpeg' : 'jpg';
-                                    $imgPath = "assets/images/ferry/galleries/{$i}.{$ext}";
-                                @endphp
-
-                                <a class="e-gallery-item elementor-gallery-item elementor-animated-content"
-                                    href="{{ asset($imgPath) }}" data-elementor-open-lightbox="yes"
-                                    data-elementor-lightbox-slideshow="aaef8b8"
-                                    data-elementor-lightbox-title="gallery-{{ $i }}"
-                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3D{{ urlencode(
-                                        base64_encode(
-                                            json_encode([
-                                                'id' => 478500 + $i,
-                                                'url' => asset($imgPath),
-                                                'slideshow' => 'aaef8b8',
-                                            ]),
-                                        ),
-                                    ) }}">
-                                    <div class="e-gallery-image elementor-gallery-item__image"
-                                        data-thumbnail="{{ asset($imgPath) }}" data-width="1400" data-height="2100"
-                                        role="img"></div>
-                                    <div class="elementor-gallery-item__overlay"></div>
-                                </a>
-                            @endforeach
-
-                        </div>
+                            <div class="custom-gallery-item" data-index="{{ $index }}"
+                                data-image="{{ $imgPath }}">
+                                <img src="{{ $imgPath }}" alt="Gallery {{ $i }}" loading="lazy"
+                                    width="1400" height="2100">
+                                <div class="custom-gallery-overlay"></div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
+
+                <div class="custom-lightbox" id="customLightbox">
+                    <button class="custom-lightbox-close" id="closeLightbox" aria-label="Close">&times;</button>
+                    <button class="custom-lightbox-nav custom-lightbox-prev" id="prevSlide"
+                        aria-label="Previous">&#10094;</button>
+                    <div class="custom-lightbox-content">
+                        <img class="custom-lightbox-image" id="lightboxImage" src="" alt="Gallery Image">
+                    </div>
+                    <button class="custom-lightbox-nav custom-lightbox-next" id="nextSlide"
+                        aria-label="Next">&#10095;</button>
+                    <div class="custom-lightbox-counter" id="lightboxCounter"></div>
+                </div>
+
+
                 <div class="elementor-element elementor-element-27464a2 wdp-sticky-section-no elementor-widget elementor-widget-html"
                     data-id="27464a2" data-element_type="widget" data-widget_type="html.default">
                     <div class="elementor-widget-container">
