@@ -1401,115 +1401,216 @@
                         <h2 class="elementor-heading-title elementor-size-default">Our pre-wedding celebration.</h2>
                     </div>
                 </div>
-                <div class="elementor-element elementor-element-fdfe8fd dce_masking-none wdp-sticky-section-no elementor-widget elementor-widget-video"
-                    data-id="fdfe8fd" data-element_type="widget"
-                    data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/youtu.be\/lHBuzl7QBE8&quot;,&quot;loop&quot;:&quot;yes&quot;,&quot;modestbranding&quot;:&quot;yes&quot;,&quot;image_overlay&quot;:{&quot;id&quot;:479309,&quot;url&quot;:&quot;https:\/\/res.cloudinary.com\/da4qv2gpx\/image\/upload\/v1757146652\/1_s4onn0.jpg&quot;},&quot;show_image_overlay&quot;:&quot;yes&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;}"
-                    data-widget_type="video.default">
-                    <div class="elementor-widget-container">
-                        <div class="elementor-wrapper elementor-open-inline">
-                            <div class="elementor-video"></div>
-                            <div class="elementor-custom-embed-image-overlay"
-                                style="background-image: url({{ asset('assets/images/ferry/youtube_thumbnail.jpg') }});">
-                                <div class="elementor-custom-embed-play" role="button" aria-label="Play Video"
-                                    tabindex="0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351 351.2">
-                                        <g id="Layer_2" data-name="Layer 2">
-                                            <g id="Layer_1-2" data-name="Layer 1">
-                                                <g>
-                                                    <path
-                                                        d="M163.1,351.2l-18.5-2.7a170.7,170.7,0,0,1-77.2-33.9C32,286.9,10.4,250.7,2.7,206.4A175.8,175.8,0,0,1,125.4,7.5c68.2-20.4,141.4,1.7,186.5,56.8,20,24.4,32.2,52.5,37,83.8.8,5,1.4,10.1,2.1,15.2v23.3c-.2,1-.5,2-.6,3-1.4,8.4-2.1,17-4,25.3-8.9,38.4-28.7,70.2-58.9,95.5a170.1,170.1,0,0,1-82.1,38c-6.3,1.1-12.6,1.9-18.9,2.8ZM337.3,175.6c0-89.3-72.5-161.9-161.8-161.9S13.6,86.3,13.6,175.6,86.2,337.5,175.5,337.5,337.3,264.9,337.3,175.6Z">
-                                                    </path>
-                                                    <path
-                                                        d="M117.3,175.3c0-26.8-.1-53.5.1-80.2a12.9,12.9,0,0,1,2.4-7.1c2.1-2.8,5.5-2.6,9.6-.3L176,114.6c31,17.9,62.1,35.8,93,53.8a12.7,12.7,0,0,1,5.1,5.9c1.3,3.3-.6,6-4.8,8.4l-49.7,28.8c-29.9,17.2-59.7,34.5-89.6,51.6a12.3,12.3,0,0,1-6.3,2c-4.1-.2-6.4-3.4-6.4-8.2-.1-8.3,0-16.5,0-24.7Z">
-                                                    </path>
-                                                </g>
+                <style>
+                    .video-container {
+                        width: 100%;
+                        max-width: 100%;
+                    }
+
+                    .video-wrapper {
+                        position: relative;
+                        padding-bottom: 56.25%;
+                        /* 16:9 aspect ratio */
+                        height: 0;
+                        overflow: hidden;
+                    }
+
+                    #youtube-player {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .video-thumbnail {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-size: cover;
+                        background-position: center;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: opacity 0.3s ease;
+                    }
+
+                    .video-thumbnail.hidden {
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+
+                    .play-button {
+                        width: 80px;
+                        height: 80px;
+                        cursor: pointer;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .play-button:hover {
+                        transform: scale(1.1);
+                    }
+
+                    .play-button svg {
+                        width: 100%;
+                        height: 100%;
+                        fill: #fff;
+                        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+                    }
+
+                    .screen-only {
+                        position: absolute;
+                        width: 1px;
+                        height: 1px;
+                        padding: 0;
+                        margin: -1px;
+                        overflow: hidden;
+                        clip: rect(0, 0, 0, 0);
+                        white-space: nowrap;
+                        border: 0;
+                    }
+                </style>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const audio = document.getElementById('song');
+                        let player;
+                        let isAPIReady = false;
+
+                        // Cek apakah YT API sudah ada
+                        if (window.YT && window.YT.Player) {
+                            initPlayer();
+                        } else {
+                            // Load YouTube API hanya sekali
+                            if (!window.YTAPILoading) {
+                                window.YTAPILoading = true;
+
+                                window.onYouTubeIframeAPIReady = function() {
+                                    isAPIReady = true;
+                                    initPlayer();
+                                };
+
+                                var tag = document.createElement('script');
+                                tag.src = "https://www.youtube.com/iframe_api";
+                                var firstScriptTag = document.getElementsByTagName('script')[0];
+                                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                            }
+                        }
+
+                        function initPlayer() {
+                            if (!document.getElementById('youtube-player')) return;
+
+                            player = new YT.Player('youtube-player', {
+                                videoId: 'lHBuzl7QBE8',
+                                playerVars: {
+                                    'autoplay': 0,
+                                    'controls': 1,
+                                    'modestbranding': 1,
+                                    'loop': 1,
+                                    'playlist': 'lHBuzl7QBE8',
+                                    'rel': 0,
+                                    'showinfo': 0,
+                                    'iv_load_policy': 3
+                                },
+                                events: {
+                                    'onReady': onPlayerReady,
+                                    'onStateChange': onPlayerStateChange
+                                }
+                            });
+                        }
+
+                        function onPlayerReady(event) {
+                            const thumbnail = document.getElementById('video-thumbnail');
+                            if (thumbnail) {
+                                thumbnail.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    this.classList.add('hidden');
+                                    player.playVideo();
+                                });
+                            }
+                        }
+
+                        function onPlayerStateChange(event) {
+                            if (!audio) return;
+
+                            if (event.data === YT.PlayerState.PLAYING) {
+                                if (!audio.paused) {
+                                    audio.pause();
+                                }
+                            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                                if (audio.paused) {
+                                    audio.play().catch(function(error) {
+                                        console.log('Audio play prevented:', error);
+                                    });
+                                }
+                            }
+                        }
+                    });
+                </script>
+
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <div id="youtube-player"></div>
+                        <div class="video-thumbnail" id="video-thumbnail"
+                            style="background-image: url('assets/images/ferry/youtube_thumbnail.jpg');">
+                            <div class="play-button" role="button" aria-label="Play Video" tabindex="0">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351 351.2">
+                                    <g id="Layer_2" data-name="Layer 2">
+                                        <g id="Layer_1-2" data-name="Layer 1">
+                                            <g>
+                                                <path
+                                                    d="M163.1,351.2l-18.5-2.7a170.7,170.7,0,0,1-77.2-33.9C32,286.9,10.4,250.7,2.7,206.4A175.8,175.8,0,0,1,125.4,7.5c68.2-20.4,141.4,1.7,186.5,56.8,20,24.4,32.2,52.5,37,83.8.8,5,1.4,10.1,2.1,15.2v23.3c-.2,1-.5,2-.6,3-1.4,8.4-2.1,17-4,25.3-8.9,38.4-28.7,70.2-58.9,95.5a170.1,170.1,0,0,1-82.1,38c-6.3,1.1-12.6,1.9-18.9,2.8ZM337.3,175.6c0-89.3-72.5-161.9-161.8-161.9S13.6,86.3,13.6,175.6,86.2,337.5,175.5,337.5,337.3,264.9,337.3,175.6Z">
+                                                </path>
+                                                <path
+                                                    d="M117.3,175.3c0-26.8-.1-53.5.1-80.2a12.9,12.9,0,0,1,2.4-7.1c2.1-2.8,5.5-2.6,9.6-.3L176,114.6c31,17.9,62.1,35.8,93,53.8a12.7,12.7,0,0,1,5.1,5.9c1.3,3.3-.6,6-4.8,8.4l-49.7,28.8c-29.9,17.2-59.7,34.5-89.6,51.6a12.3,12.3,0,0,1-6.3,2c-4.1-.2-6.4-3.4-6.4-8.2-.1-8.3,0-16.5,0-24.7Z">
+                                                </path>
                                             </g>
                                         </g>
-                                    </svg> <span class="elementor-screen-only">Play Video</span>
-                                </div>
+                                    </g>
+                                </svg>
+                                <span class="screen-only">Play Video</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="custom-gallery-wrapper">
-    <div class="custom-gallery-container" id="customGallery">
-        @php
-            $order = [1, 2, 3, 4, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 6, 7, 8, 9];
-        @endphp
+                    <div class="custom-gallery-container" id="customGallery">
+                        @php
+                            $order = [1, 2, 3, 4, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 6, 7, 8, 9];
+                        @endphp
 
-        @foreach ($order as $index => $i)
-            @php
-                $ext = $i == 19 ? 'jpeg' : 'jpg';
-                $imgPath = asset("assets/images/ferry/galleries/{$i}.{$ext}");
-            @endphp
+                        @foreach ($order as $index => $i)
+                            @php
+                                $ext = $i == 19 ? 'jpeg' : 'jpg';
+                                $imgPath = asset("assets/images/ferry/galleries/{$i}.{$ext}");
+                            @endphp
 
-            <div class="custom-gallery-item" data-index="{{ $index }}" data-image="{{ $imgPath }}">
-                <img src="{{ $imgPath }}"
-                     alt="Gallery {{ $i }}"
-                     loading="lazy"
-                     width="1400"
-                     height="2100">
-                <div class="custom-gallery-overlay"></div>
-            </div>
-        @endforeach
-    </div>
-</div>
-
-<div class="custom-lightbox" id="customLightbox">
-    <button class="custom-lightbox-close" id="closeLightbox" aria-label="Close">&times;</button>
-    <div class="custom-lightbox-content">
-        <img class="custom-lightbox-image" id="lightboxImage" src="" alt="Gallery Image">
-    </div>
-    <div class="custom-lightbox-counter" id="lightboxCounter"></div>
-    <div class="swipe-indicator" id="swipeIndicator">← Swipe untuk navigasi →</div>
-</div>
-
-
-                <div class="elementor-element elementor-element-27464a2 wdp-sticky-section-no elementor-widget elementor-widget-html"
-                    data-id="27464a2" data-element_type="widget" data-widget_type="html.default">
-                    <div class="elementor-widget-container">
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                const audio = document.getElementById('song');
-                                const videoIframe = document.querySelector('.elementor-video');
-
-                                if (videoIframe) {
-                                    const videoSrc = videoIframe.getAttribute('src');
-                                    videoIframe.setAttribute('src', videoSrc + '&enablejsapi=1');
-
-                                    // Gunakan window.postMessage untuk mendeteksi ketika video diputar atau di-pause
-                                    window.addEventListener('message', function(event) {
-                                        if (event.origin.includes('youtube.com') && event.data && typeof event.data ===
-                                            'string') {
-                                            const messageData = JSON.parse(event.data);
-
-                                            if (messageData.event === 'onStateChange') {
-                                                if (messageData.info === 1) {
-                                                    // Video diputar
-                                                    if (!audio.paused) {
-                                                        audio.pause();
-                                                    }
-                                                } else if (messageData.info === 2 || messageData.info === 0) {
-                                                    // Video di-pause atau berakhir
-                                                    if (audio.paused) {
-                                                        audio.play();
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    });
-
-                                    // Mengirim pesan ke YouTube iframe untuk mengaktifkan API
-                                    videoIframe.contentWindow.postMessage(JSON.stringify({
-                                        event: 'listening',
-                                        id: videoIframe.getAttribute('id')
-                                    }), '*');
-                                }
-                            });
-                        </script>
+                            <div class="custom-gallery-item" data-index="{{ $index }}"
+                                data-image="{{ $imgPath }}">
+                                <img src="{{ $imgPath }}" alt="Gallery {{ $i }}" loading="lazy"
+                                    decoding="async" width="400" height="600">
+                                <div class="custom-gallery-overlay"></div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
+
+                <div class="custom-lightbox" id="customLightbox">
+                    <button class="custom-lightbox-close" id="closeLightbox" aria-label="Close">&times;</button>
+                    <div class="custom-lightbox-content">
+                        <img class="custom-lightbox-image" id="lightboxImage" src="" alt="Gallery Image">
+                    </div>
+                    <div class="custom-lightbox-counter" id="lightboxCounter"></div>
+                    <div class="swipe-indicator" id="swipeIndicator">← Swipe untuk navigasi →</div>
+                </div>
+
+
+
             </div>
         </div>
         <div class="elementor-element elementor-element-6982c326 e-flex e-con-boxed e-con e-parent" data-id="6982c326"
